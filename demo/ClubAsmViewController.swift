@@ -147,7 +147,7 @@ class ClubAsmViewController: UIViewController, SCNSceneRendererDelegate {
     }
     
     fileprivate func start() {
-        self.sceneView.isHidden = false
+//        self.sceneView.isHidden = false
         
         self.audioPlayer.play()
         
