@@ -11,7 +11,7 @@ import AVFoundation
 import SceneKit
 import Foundation
 
-class ViewController: UIViewController, SCNSceneRendererDelegate {
+class ClubAsmViewController: UIViewController, SCNSceneRendererDelegate {
     let autostart = false
     
     let audioPlayer: AVAudioPlayer
