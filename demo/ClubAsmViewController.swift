@@ -72,7 +72,9 @@ class ClubAsmViewController: UIViewController, SCNSceneRendererDelegate {
         
         self.view.addSubview(self.sceneView)
 
-        self.view.addSubview(self.startButton)
+        if !self.autostart {
+            self.view.addSubview(self.startButton)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -111,9 +113,7 @@ class ClubAsmViewController: UIViewController, SCNSceneRendererDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if (self.autostart) {
-            self.startButton.isUserInteractionEnabled = false
-            self.startButton.alpha = 0
+        if self.autostart {
             start()
         }
     }
