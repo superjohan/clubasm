@@ -12,6 +12,7 @@
 		9042B72C2056F88C000DB49A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9042B72B2056F88C000DB49A /* Assets.xcassets */; };
 		9042B72F2056F88C000DB49A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9042B72D2056F88C000DB49A /* LaunchScreen.storyboard */; };
 		905B95BC2247850700E278C2 /* ClubAsmConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905B95BB2247850700E278C2 /* ClubAsmConstants.swift */; };
+		905B95BE2247886200E278C2 /* soundtrack.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 905B95BD2247886200E278C2 /* soundtrack.m4a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		9042B72E2056F88C000DB49A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9042B7302056F88C000DB49A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		905B95BB2247850700E278C2 /* ClubAsmConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmConstants.swift; sourceTree = "<group>"; };
+		905B95BD2247886200E278C2 /* soundtrack.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = soundtrack.m4a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		9042B7232056F88C000DB49A /* demo */ = {
 			isa = PBXGroup;
 			children = (
+				905B95BD2247886200E278C2 /* soundtrack.m4a */,
 				9042B7242056F88C000DB49A /* AppDelegate.swift */,
 				905B95BB2247850700E278C2 /* ClubAsmConstants.swift */,
 				9042B7262056F88C000DB49A /* ClubAsmViewController.swift */,
@@ -124,6 +127,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				905B95BE2247886200E278C2 /* soundtrack.m4a in Resources */,
 				9042B72F2056F88C000DB49A /* LaunchScreen.storyboard in Resources */,
 				9042B72C2056F88C000DB49A /* Assets.xcassets in Resources */,
 			);
