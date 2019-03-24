@@ -20,6 +20,8 @@ class ClubAsmViewController: UIViewController, SCNSceneRendererDelegate {
     let startButton: UIButton
     let qtFoolingBgView: UIView = UIView.init(frame: CGRect.zero)
 
+    var position = 0
+    
     // MARK: - UIViewController
     
     init() {
@@ -156,13 +158,42 @@ class ClubAsmViewController: UIViewController, SCNSceneRendererDelegate {
     
     private func scheduleEvents() {
         let bpm = 140.0
-        let tick = ((120.0 / bpm) / 8.0)
+        let bar = (120.0 / bpm) * 2.0
+        let tick = bar / 16.0
 
-        perform(#selector(event), with: nil, afterDelay: tick)
+        var position = 0
+        
+        for _ in 0...ClubAsmPositions.end {
+            perform(#selector(kick1), with: nil, afterDelay: bar * Double(position))
+            perform(#selector(kick2), with: nil, afterDelay: bar * Double(position) + tick)
+            perform(#selector(kick3), with: nil, afterDelay: bar * Double(position) + (tick * 2.0))
+            perform(#selector(kick4), with: nil, afterDelay: bar * Double(position) + (tick * 3.0))
+            perform(#selector(clap), with: nil, afterDelay: bar * Double(position) + (tick * 4.0))
+            
+            position += 1
+        }
     }
     
-    @objc private func event() {
-        // intentionally left blank
+    @objc private func kick1() {
+        self.position += 1
+        
+        self.view.backgroundColor = .red
+    }
+
+    @objc private func kick2() {
+        self.view.backgroundColor = .green
+    }
+
+    @objc private func kick3() {
+        self.view.backgroundColor = .blue
+    }
+
+    @objc private func kick4() {
+        self.view.backgroundColor = .yellow
+    }
+
+    @objc private func clap() {
+        self.view.backgroundColor = .orange
     }
 
     fileprivate func createScene() -> SCNScene {
