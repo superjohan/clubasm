@@ -12,7 +12,7 @@ import SceneKit
 import Foundation
 
 class ClubAsmViewController: UIViewController, SCNSceneRendererDelegate {
-    let autostart = false
+    let autostart = true
     
     let audioPlayer: AVAudioPlayer
     let sceneView = SCNView()
