@@ -18,7 +18,7 @@ class ShadeTwistView: UIView {
         
         self.backgroundColor = .darkGray
         
-        let width = CGFloat(299)
+        let width = CGFloat(299) // FIXME: this should come from the image's dimensions
         let height = frame.size.height / 4.0
         let offset = width / 4.0
         
