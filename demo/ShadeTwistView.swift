@@ -9,14 +9,14 @@
 import UIKit
 
 class ShadeTwistView: UIView {
-    private let duration = 2.0
+    private let duration = 1.5
     
     private var shades = [ShadeViewHolder]()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = .black
+        self.backgroundColor = .darkGray
         
         let height = frame.size.height / 4.0
         
@@ -24,7 +24,7 @@ class ShadeTwistView: UIView {
             let holder = ShadeViewHolder(
                 centerX: frame.size.width / 2.0,
                 y: height * (CGFloat(i)),
-                width: 500,
+                width: 299,
                 height: height,
                 startDelay: TimeInterval(i) * (self.duration / 4.0)
             )
@@ -47,10 +47,10 @@ class ShadeTwistView: UIView {
     }
     
     private class ShadeViewHolder {
-        let leftView = UIView()
+        let leftView = UIImageView(image: UIImage(named: "clubasmrivalsblack"))
         private let leftShadeLeft = UIImageView(image: UIImage(named: "clubasmshadeleft"))
         private let leftShadeRight = UIImageView(image: UIImage(named: "clubasmshaderight"))
-        let rightView = UIView()
+        let rightView = UIImageView(image: UIImage(named: "clubasmrivalswhite"))
         private let rightShadeLeft = UIImageView(image: UIImage(named: "clubasmshadeleft"))
         private let rightShadeRight = UIImageView(image: UIImage(named: "clubasmshaderight"))
         
@@ -63,8 +63,8 @@ class ShadeTwistView: UIView {
         init(centerX: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, startDelay: TimeInterval) {
             self.startDelay = startDelay
             
-            self.leftView.backgroundColor = .red
-            self.rightView.backgroundColor = .green
+            self.leftView.backgroundColor = .white
+            self.rightView.backgroundColor = .black
             
             self.leftView.frame = CGRect(
                 x: centerX - width / 2,
@@ -110,7 +110,7 @@ class ShadeTwistView: UIView {
             
             self.started = true
             
-            UIView.animate(withDuration: duration, delay: delay, options: [.curveEaseOut], animations: {
+            UIView.animate(withDuration: duration, delay: delay, options: [.curveEaseInOut], animations: {
                 self.leftView.frame.size.width = 0
                 self.leftShadeLeft.alpha = 1
                 
@@ -125,7 +125,7 @@ class ShadeTwistView: UIView {
                 self.rightShadeLeft.alpha = 0
                 self.rightShadeRight.alpha = 0
                 
-                UIView.animate(withDuration: duration, delay: 0, options: [.curveEaseOut], animations: {
+                UIView.animate(withDuration: duration, delay: 0, options: [.curveEaseInOut], animations: {
                     self.leftView.frame.origin.x = self.x
                     self.leftView.frame.size.width = self.width
                     self.leftShadeRight.alpha = 0
