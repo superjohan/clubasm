@@ -16,6 +16,7 @@
 		905B95BE2247886200E278C2 /* soundtrack.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 905B95BD2247886200E278C2 /* soundtrack.m4a */; };
 		90AC3AC7224A8820006483D4 /* ClubAsmRotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3AC6224A8820006483D4 /* ClubAsmRotationView.swift */; };
 		90AC3AC9224A8E7F006483D4 /* ClubAsmActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3AC8224A8E7F006483D4 /* ClubAsmActions.swift */; };
+		90AC3ACB224A9E3E006483D4 /* ClubAsmLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3ACA224A9E3E006483D4 /* ClubAsmLocalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		905B95BD2247886200E278C2 /* soundtrack.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = soundtrack.m4a; sourceTree = "<group>"; };
 		90AC3AC6224A8820006483D4 /* ClubAsmRotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmRotationView.swift; sourceTree = "<group>"; };
 		90AC3AC8224A8E7F006483D4 /* ClubAsmActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmActions.swift; sourceTree = "<group>"; };
+		90AC3ACA224A9E3E006483D4 /* ClubAsmLocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmLocalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				904CB60222493D6A00F81F2D /* ShadeTwistView.swift */,
 				905B95BB2247850700E278C2 /* ClubAsmConstants.swift */,
 				9042B7262056F88C000DB49A /* ClubAsmViewController.swift */,
+				90AC3ACA224A9E3E006483D4 /* ClubAsmLocalView.swift */,
 				90AC3AC8224A8E7F006483D4 /* ClubAsmActions.swift */,
 				90AC3AC6224A8820006483D4 /* ClubAsmRotationView.swift */,
 				9042B72B2056F88C000DB49A /* Assets.xcassets */,
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9042B7272056F88C000DB49A /* ClubAsmViewController.swift in Sources */,
+				90AC3ACB224A9E3E006483D4 /* ClubAsmLocalView.swift in Sources */,
 				905B95BC2247850700E278C2 /* ClubAsmConstants.swift in Sources */,
 				9042B7252056F88C000DB49A /* AppDelegate.swift in Sources */,
 				90AC3AC7224A8820006483D4 /* ClubAsmRotationView.swift in Sources */,
