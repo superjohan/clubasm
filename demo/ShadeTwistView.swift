@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShadeTwist: UIView {
+class ShadeTwistView: UIView {
     private let duration = 2.0
     
     private var shades = [ShadeViewHolder]()
