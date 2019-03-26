@@ -18,13 +18,17 @@ class ShadeTwistView: UIView {
         
         self.backgroundColor = .darkGray
         
+        let width = CGFloat(299)
         let height = frame.size.height / 4.0
+        let offset = width / 4.0
         
         for i in 0..<4 {
+            let centerOffset = -(width / 2.5) + (CGFloat(i) * offset)
+            
             let holder = ShadeViewHolder(
-                centerX: frame.size.width / 2.0,
+                centerX: (frame.size.width / 2.0) + centerOffset,
                 y: height * (CGFloat(i)),
-                width: 299,
+                width: width,
                 height: height,
                 startDelay: TimeInterval(i) * (self.duration / 4.0)
             )
