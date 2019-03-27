@@ -8,10 +8,11 @@
 
 import UIKit
 
-class ClubAsmShadeTwistView: UIView {
+class ClubAsmShadeTwistView: UIView, ClubAsmActions {
     private let duration = 1.5
     
     private var shades = [ShadeViewHolder]()
+    private var isAnimating = false
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,12 +45,71 @@ class ClubAsmShadeTwistView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func animate() {
+    func action1() {
+        if self.isAnimating {
+            return
+        }
+        
+        hideAllViews()
+        showView(index: 0)
+    }
+    
+    func action2() {
+        if self.isAnimating {
+            return
+        }
+        
+        hideAllViews()
+        showView(index: 1)
+    }
+    
+    func action3() {
+        if self.isAnimating {
+            return
+        }
+        
+        hideAllViews()
+        showView(index: 2)
+    }
+    
+    func action4() {
+        if self.isAnimating {
+            return
+        }
+        
+        hideAllViews()
+        showView(index: 3)
+    }
+    
+    func action5() {
+        if self.isAnimating {
+            return
+        }
+        
+        animate()
+
+        self.isAnimating = true
+    }
+    
+    private func showView(index: Int) {
+        let holder = self.shades[index]
+
+        holder.setViewVisibility(isHidden: false)
+    }
+    
+    private func hideAllViews() {
         for holder in self.shades {
-            holder.animateRow(duration: self.duration)
+            holder.setViewVisibility(isHidden: true)
         }
     }
     
+    private func animate() {
+        for holder in self.shades {
+            holder.setViewVisibility(isHidden: false)
+            holder.animateRow(duration: self.duration)
+        }
+    }
+
     private class ShadeViewHolder {
         let leftView = UIImageView(image: UIImage(named: "clubasmrivalsblack"))
         private let leftShadeLeft = UIImageView(image: UIImage(named: "clubasmshadeleft"))
@@ -100,6 +160,13 @@ class ClubAsmShadeTwistView: UIView {
             self.leftShadeRight.autoresizingMask = self.leftShadeLeft.autoresizingMask
             self.rightShadeLeft.autoresizingMask = self.leftShadeLeft.autoresizingMask
             self.rightShadeRight.autoresizingMask = self.leftShadeLeft.autoresizingMask
+
+            self.rightView.frame.origin.x = self.x + self.width
+            
+            self.leftShadeLeft.alpha = 0
+            self.leftShadeRight.alpha = 0
+            self.rightShadeLeft.alpha = 0
+            self.rightShadeRight.alpha = 1
         }
         
         func animateRow(duration: TimeInterval) {
@@ -140,6 +207,19 @@ class ClubAsmShadeTwistView: UIView {
                     self.animateRow(duration: duration)
                 })
             })
+        }
+        
+        func setViewVisibility(isHidden: Bool) {
+            self.leftView.isHidden = isHidden
+            self.rightView.isHidden = isHidden
+            
+            if isHidden {
+                self.leftView.alpha = 0
+                self.rightView.alpha = 0
+            } else {
+                self.leftView.alpha = 1
+                self.rightView.alpha = 1
+            }
         }
     }
 }
