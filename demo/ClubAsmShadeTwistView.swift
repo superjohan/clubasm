@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShadeTwistView: UIView {
+class ClubAsmShadeTwistView: UIView {
     private let duration = 1.5
     
     private var shades = [ShadeViewHolder]()
