@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		900AFCDF224D3E1A0056EC0E /* ClubAsmFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900AFCDE224D3E1A0056EC0E /* ClubAsmFriendsView.swift */; };
 		901C8302224BFCDE00DE47CE /* ClubAsmContendersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901C8301224BFCDE00DE47CE /* ClubAsmContendersView.swift */; };
 		901C8304224C019000DE47CE /* ClubAsmLegendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901C8303224C019000DE47CE /* ClubAsmLegendsView.swift */; };
 		9042B7252056F88C000DB49A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9042B7242056F88C000DB49A /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		900AFCDE224D3E1A0056EC0E /* ClubAsmFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmFriendsView.swift; sourceTree = "<group>"; };
 		901C8301224BFCDE00DE47CE /* ClubAsmContendersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmContendersView.swift; sourceTree = "<group>"; };
 		901C8303224C019000DE47CE /* ClubAsmLegendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmLegendsView.swift; sourceTree = "<group>"; };
 		9042B7212056F88C000DB49A /* demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +75,7 @@
 				904CB60222493D6A00F81F2D /* ClubAsmShadeTwistView.swift */,
 				905B95BB2247850700E278C2 /* ClubAsmConstants.swift */,
 				9042B7262056F88C000DB49A /* ClubAsmViewController.swift */,
+				900AFCDE224D3E1A0056EC0E /* ClubAsmFriendsView.swift */,
 				90AC3ACA224A9E3E006483D4 /* ClubAsmLocalView.swift */,
 				90AC3AC8224A8E7F006483D4 /* ClubAsmActions.swift */,
 				901C8301224BFCDE00DE47CE /* ClubAsmContendersView.swift */,
@@ -166,6 +169,7 @@
 				901C8302224BFCDE00DE47CE /* ClubAsmContendersView.swift in Sources */,
 				904CB60322493D6A00F81F2D /* ClubAsmShadeTwistView.swift in Sources */,
 				901C8304224C019000DE47CE /* ClubAsmLegendsView.swift in Sources */,
+				900AFCDF224D3E1A0056EC0E /* ClubAsmFriendsView.swift in Sources */,
 				90AC3AC9224A8E7F006483D4 /* ClubAsmActions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
