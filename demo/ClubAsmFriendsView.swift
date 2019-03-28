@@ -70,37 +70,47 @@ class ClubAsmFriendsView: UIView, ClubAsmActions {
     }
     
     func action1() {
+        self.friendsView.transform = CGAffineTransform.identity.scaledBy(x: 0.2, y: 0.2)
+
         if self.animating { return }
 
         self.interference1?.isHidden = true
         self.interference2?.isHidden = true
         
-        self.friendsView.transform = CGAffineTransform.identity.scaledBy(x: 0.2, y: 0.2)
         self.circles?.transform = CGAffineTransform.identity.scaledBy(x: 0.2, y: 0.2)
     }
     
     func action2() {
+        self.friendsView.transform = CGAffineTransform.identity.scaledBy(x: 0.4, y: 0.4)
+
         if self.animating { return }
         
-        self.friendsView.transform = CGAffineTransform.identity.scaledBy(x: 0.4, y: 0.4)
         self.circles?.transform = CGAffineTransform.identity.scaledBy(x: 0.4, y: 0.4)
     }
     
     func action3() {
+        self.friendsView.transform = CGAffineTransform.identity.scaledBy(x: 0.6, y: 0.6)
+
         if self.animating { return }
         
-        self.friendsView.transform = CGAffineTransform.identity.scaledBy(x: 0.6, y: 0.6)
         self.circles?.transform = CGAffineTransform.identity.scaledBy(x: 0.6, y: 0.6)
     }
     
     func action4() {
+        self.friendsView.transform = CGAffineTransform.identity.scaledBy(x: 0.8, y: 0.8)
+
         if self.animating { return }
         
-        self.friendsView.transform = CGAffineTransform.identity.scaledBy(x: 0.8, y: 0.8)
         self.circles?.transform = CGAffineTransform.identity.scaledBy(x: 0.8, y: 0.8)
     }
     
     func action5() {
+        self.friendsView.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
+
+        UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseOut], animations: {
+            self.friendsView.transform = CGAffineTransform.identity.scaledBy(x: 1.0, y: 1.0)
+        }, completion: nil)
+        
         if self.animating { return }
 
         self.animating = true
@@ -108,8 +118,6 @@ class ClubAsmFriendsView: UIView, ClubAsmActions {
         self.interference1?.isHidden = false
         self.interference2?.isHidden = false
         self.circles?.isHidden = true
-
-        self.friendsView.transform = CGAffineTransform.identity.scaledBy(x: 1.0, y: 1.0)
 
         let distance = Double(self.bounds.size.height / 4.0)
 
