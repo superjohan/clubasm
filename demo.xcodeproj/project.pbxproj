@@ -10,6 +10,7 @@
 		900AFCDF224D3E1A0056EC0E /* ClubAsmFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900AFCDE224D3E1A0056EC0E /* ClubAsmFriendsView.swift */; };
 		901C8302224BFCDE00DE47CE /* ClubAsmContendersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901C8301224BFCDE00DE47CE /* ClubAsmContendersView.swift */; };
 		901C8304224C019000DE47CE /* ClubAsmLegendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901C8303224C019000DE47CE /* ClubAsmLegendsView.swift */; };
+		903B4B912252875700D17724 /* ClubAsmGamingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903B4B902252875700D17724 /* ClubAsmGamingView.swift */; };
 		9042B7252056F88C000DB49A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9042B7242056F88C000DB49A /* AppDelegate.swift */; };
 		9042B7272056F88C000DB49A /* ClubAsmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9042B7262056F88C000DB49A /* ClubAsmViewController.swift */; };
 		9042B72C2056F88C000DB49A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9042B72B2056F88C000DB49A /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		900AFCDE224D3E1A0056EC0E /* ClubAsmFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmFriendsView.swift; sourceTree = "<group>"; };
 		901C8301224BFCDE00DE47CE /* ClubAsmContendersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmContendersView.swift; sourceTree = "<group>"; };
 		901C8303224C019000DE47CE /* ClubAsmLegendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmLegendsView.swift; sourceTree = "<group>"; };
+		903B4B902252875700D17724 /* ClubAsmGamingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmGamingView.swift; sourceTree = "<group>"; };
 		9042B7212056F88C000DB49A /* demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9042B7242056F88C000DB49A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9042B7262056F88C000DB49A /* ClubAsmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				90AC3AC8224A8E7F006483D4 /* ClubAsmActions.swift */,
 				901C8301224BFCDE00DE47CE /* ClubAsmContendersView.swift */,
 				90495CA1224E7FD90055BE69 /* ClubAsmCompetitionsView.swift */,
+				903B4B902252875700D17724 /* ClubAsmGamingView.swift */,
 				90AC3AC6224A8820006483D4 /* ClubAsmRotationView.swift */,
 				901C8303224C019000DE47CE /* ClubAsmLegendsView.swift */,
 				9042B72B2056F88C000DB49A /* Assets.xcassets */,
@@ -171,6 +174,7 @@
 				9042B7252056F88C000DB49A /* AppDelegate.swift in Sources */,
 				90AC3AC7224A8820006483D4 /* ClubAsmRotationView.swift in Sources */,
 				901C8302224BFCDE00DE47CE /* ClubAsmContendersView.swift in Sources */,
+				903B4B912252875700D17724 /* ClubAsmGamingView.swift in Sources */,
 				904CB60322493D6A00F81F2D /* ClubAsmShadeTwistView.swift in Sources */,
 				901C8304224C019000DE47CE /* ClubAsmLegendsView.swift in Sources */,
 				900AFCDF224D3E1A0056EC0E /* ClubAsmFriendsView.swift in Sources */,
