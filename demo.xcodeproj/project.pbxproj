@@ -55,6 +55,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		903B4B922252948E00D17724 /* part 1 */ = {
+			isa = PBXGroup;
+			children = (
+				904CB60222493D6A00F81F2D /* ClubAsmShadeTwistView.swift */,
+				900AFCDE224D3E1A0056EC0E /* ClubAsmFriendsView.swift */,
+				90AC3ACA224A9E3E006483D4 /* ClubAsmLocalView.swift */,
+				901C8301224BFCDE00DE47CE /* ClubAsmContendersView.swift */,
+				90495CA1224E7FD90055BE69 /* ClubAsmCompetitionsView.swift */,
+				903B4B902252875700D17724 /* ClubAsmGamingView.swift */,
+				90AC3AC6224A8820006483D4 /* ClubAsmRotationView.swift */,
+				901C8303224C019000DE47CE /* ClubAsmLegendsView.swift */,
+			);
+			path = "part 1";
+			sourceTree = "<group>";
+		};
 		9042B7182056F88C000DB49A = {
 			isa = PBXGroup;
 			children = (
@@ -74,19 +89,12 @@
 		9042B7232056F88C000DB49A /* demo */ = {
 			isa = PBXGroup;
 			children = (
+				903B4B922252948E00D17724 /* part 1 */,
 				905B95BD2247886200E278C2 /* soundtrack.m4a */,
 				9042B7242056F88C000DB49A /* AppDelegate.swift */,
-				904CB60222493D6A00F81F2D /* ClubAsmShadeTwistView.swift */,
 				905B95BB2247850700E278C2 /* ClubAsmConstants.swift */,
 				9042B7262056F88C000DB49A /* ClubAsmViewController.swift */,
-				900AFCDE224D3E1A0056EC0E /* ClubAsmFriendsView.swift */,
-				90AC3ACA224A9E3E006483D4 /* ClubAsmLocalView.swift */,
 				90AC3AC8224A8E7F006483D4 /* ClubAsmActions.swift */,
-				901C8301224BFCDE00DE47CE /* ClubAsmContendersView.swift */,
-				90495CA1224E7FD90055BE69 /* ClubAsmCompetitionsView.swift */,
-				903B4B902252875700D17724 /* ClubAsmGamingView.swift */,
-				90AC3AC6224A8820006483D4 /* ClubAsmRotationView.swift */,
-				901C8303224C019000DE47CE /* ClubAsmLegendsView.swift */,
 				9042B72B2056F88C000DB49A /* Assets.xcassets */,
 				9042B72D2056F88C000DB49A /* LaunchScreen.storyboard */,
 				9042B7302056F88C000DB49A /* Info.plist */,
