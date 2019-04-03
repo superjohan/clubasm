@@ -19,8 +19,14 @@ class ClubAsmViewController: UIViewController, SCNSceneRendererDelegate {
     let camera = SCNNode()
     let startButton: UIButton
     let qtFoolingBgView: UIView = UIView.init(frame: CGRect.zero)
-
+    
     var position = 0
+    var part1position = 0
+    
+    let part1view = UIView(frame: .zero)
+    var part1views = [ClubAsmActions]()
+    
+    var currentView: ClubAsmActions?
     
     // MARK: - UIViewController
     
@@ -73,6 +79,7 @@ class ClubAsmViewController: UIViewController, SCNSceneRendererDelegate {
         self.view.addSubview(self.qtFoolingBgView)
         
         self.view.addSubview(self.sceneView)
+        self.view.addSubview(self.part1view)
 
         if !self.autostart {
             self.view.addSubview(self.startButton)
@@ -94,7 +101,7 @@ class ClubAsmViewController: UIViewController, SCNSceneRendererDelegate {
         
         self.sceneView.scene = createScene()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -107,6 +114,29 @@ class ClubAsmViewController: UIViewController, SCNSceneRendererDelegate {
 
         self.sceneView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height)
         self.sceneView.isHidden = true
+
+        self.part1view.frame = self.view.bounds
+        self.part1view.isHidden = true
+        
+        let frame = self.view.bounds
+        
+        self.part1views.append(ClubAsmGlobalView(frame: frame))
+        self.part1views.append(ClubAsmLocalView(frame: frame))
+        self.part1views.append(ClubAsmLegendsView(frame: frame))
+        self.part1views.append(ClubAsmContendersView(frame: frame))
+        self.part1views.append(ClubAsmFriendsView(frame: frame))
+        self.part1views.append(ClubAsmRivalsView(frame: frame))
+        self.part1views.append(ClubAsmCompetitionsView(frame: frame))
+        self.part1views.append(ClubAsmGamingView(frame: frame))
+        self.part1views.append(ClubAsmLearnView(frame: frame))
+        self.part1views.append(ClubAsmRelaxView(frame: frame))
+        self.part1views.append(ClubAsmVictoryView(frame: frame))
+        self.part1views.append(ClubAsmDefeatView(frame: frame))
+
+        for view in self.part1views {
+            self.part1view.addSubview(view)
+            view.isHidden = true
+        }
 
         self.startButton.frame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height)
     }
@@ -174,25 +204,80 @@ class ClubAsmViewController: UIViewController, SCNSceneRendererDelegate {
     }
     
     @objc private func kick1() {
+        self.view.backgroundColor = .red
+        
+        selectCurrentView()
+
         self.position += 1
         
-        self.view.backgroundColor = .red
+        self.currentView?.action1()
     }
 
     @objc private func kick2() {
         self.view.backgroundColor = .green
+
+        self.currentView?.action2()
     }
 
     @objc private func kick3() {
         self.view.backgroundColor = .blue
+
+        self.currentView?.action3()
     }
 
     @objc private func kick4() {
         self.view.backgroundColor = .yellow
+
+        self.currentView?.action4()
     }
 
     @objc private func clap() {
         self.view.backgroundColor = .orange
+
+        self.currentView?.action5()
+    }
+
+    private func selectCurrentView() {
+        let currentView = self.currentView
+        
+        if self.position >= ClubAsmPositions.beatBasslineStart && self.position < ClubAsmPositions.raveStart {
+            switch self.part1position {
+            case 0:
+                self.part1view.isHidden = false
+                self.currentView = self.part1views[0]
+            case 1:
+                self.currentView = self.part1views[1]
+            case 2:
+                self.currentView = self.part1views[2]
+            case 3:
+                self.currentView = self.part1views[3]
+            case 4, 5:
+                self.currentView = self.part1views[4]
+            case 6, 7:
+                self.currentView = self.part1views[5]
+            case 8:
+                self.currentView = self.part1views[6]
+            case 9:
+                self.currentView = self.part1views[7]
+            case 10:
+                self.currentView = self.part1views[8]
+            case 11:
+                self.currentView = self.part1views[9]
+            case 12, 13:
+                self.currentView = self.part1views[10]
+            case 14, 15:
+                self.currentView = self.part1views[11]
+            default:
+                abort()
+            }
+            
+            self.part1position += 1
+        }
+        
+        if currentView !== self.currentView {
+            currentView?.isHidden = true
+            self.currentView?.isHidden = false
+        }
     }
 
     fileprivate func createScene() -> SCNScene {
