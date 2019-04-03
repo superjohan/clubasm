@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ClubAsmRotationView: UIView, ClubAsmActions {
+class ClubAsmGlobalView: UIView, ClubAsmActions {
     private let imageCount = 8
     
     private var imageViews = [UIImageView]()
