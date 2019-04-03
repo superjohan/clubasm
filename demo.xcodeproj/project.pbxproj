@@ -66,16 +66,16 @@
 		903B4B922252948E00D17724 /* part 1 */ = {
 			isa = PBXGroup;
 			children = (
-				904CB60222493D6A00F81F2D /* ClubAsmRivalsView.swift */,
-				900AFCDE224D3E1A0056EC0E /* ClubAsmFriendsView.swift */,
+				90AC3AC6224A8820006483D4 /* ClubAsmGlobalView.swift */,
 				90AC3ACA224A9E3E006483D4 /* ClubAsmLocalView.swift */,
+				901C8303224C019000DE47CE /* ClubAsmLegendsView.swift */,
 				901C8301224BFCDE00DE47CE /* ClubAsmContendersView.swift */,
+				900AFCDE224D3E1A0056EC0E /* ClubAsmFriendsView.swift */,
+				904CB60222493D6A00F81F2D /* ClubAsmRivalsView.swift */,
 				90495CA1224E7FD90055BE69 /* ClubAsmCompetitionsView.swift */,
 				903B4B902252875700D17724 /* ClubAsmGamingView.swift */,
-				90AC3AC6224A8820006483D4 /* ClubAsmGlobalView.swift */,
-				901C8303224C019000DE47CE /* ClubAsmLegendsView.swift */,
-				903B4B932253C7C100D17724 /* ClubAsmRelaxView.swift */,
 				903B4B952253DDFC00D17724 /* ClubAsmLearnView.swift */,
+				903B4B932253C7C100D17724 /* ClubAsmRelaxView.swift */,
 				90C3C6DD22549C6C000BA98F /* ClubAsmVictoryView.swift */,
 				9071FE9F22550BF60097D730 /* ClubAsmDefeatView.swift */,
 			);
