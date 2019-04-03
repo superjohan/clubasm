@@ -106,7 +106,6 @@ class ClubAsmViewController: UIViewController, SCNSceneRendererDelegate {
         )
 
         self.sceneView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height)
-        self.sceneView.isPlaying = true
         self.sceneView.isHidden = true
 
         self.startButton.frame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height)
