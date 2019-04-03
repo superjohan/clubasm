@@ -67,10 +67,10 @@ class ClubAsmVictoryView: UIView, ClubAsmActions {
             view.isHidden = true
             self.sines[index].isHidden = true
             
-            let distance = Double(view.bounds.size.width) * (4.0 / 3.0)
+            let distance = Double(view.bounds.size.width)
             let animation = CABasicAnimation(keyPath: "position.x")
-            animation.fromValue = NSNumber(floatLiteral: Double(self.bounds.size.width / 2.0) - (distance / 2.0))
-            animation.toValue = NSNumber(floatLiteral: Double(self.bounds.size.width / 2.0) + (distance / 2.0))
+            animation.fromValue = NSNumber(floatLiteral: Double(self.bounds.size.width / 2.0) - distance)
+            animation.toValue = NSNumber(floatLiteral: Double(self.bounds.size.width / 2.0) + distance)
             animation.duration = 1
             animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
             animation.autoreverses = true
