@@ -6,7 +6,9 @@
 //  Copyright © 2019 Dekadence. All rights reserved.
 //
 
-protocol ClubAsmActions {
+import UIKit
+
+protocol ClubAsmActions: UIView {
     func action1()
     func action2()
     func action3()
