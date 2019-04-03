@@ -24,6 +24,7 @@
 		90AC3AC7224A8820006483D4 /* ClubAsmRotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3AC6224A8820006483D4 /* ClubAsmRotationView.swift */; };
 		90AC3AC9224A8E7F006483D4 /* ClubAsmActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3AC8224A8E7F006483D4 /* ClubAsmActions.swift */; };
 		90AC3ACB224A9E3E006483D4 /* ClubAsmLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3ACA224A9E3E006483D4 /* ClubAsmLocalView.swift */; };
+		90C3C6DE22549C6C000BA98F /* ClubAsmVictoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C3C6DD22549C6C000BA98F /* ClubAsmVictoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		90AC3AC6224A8820006483D4 /* ClubAsmRotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmRotationView.swift; sourceTree = "<group>"; };
 		90AC3AC8224A8E7F006483D4 /* ClubAsmActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmActions.swift; sourceTree = "<group>"; };
 		90AC3ACA224A9E3E006483D4 /* ClubAsmLocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmLocalView.swift; sourceTree = "<group>"; };
+		90C3C6DD22549C6C000BA98F /* ClubAsmVictoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmVictoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				901C8303224C019000DE47CE /* ClubAsmLegendsView.swift */,
 				903B4B932253C7C100D17724 /* ClubAsmRelaxView.swift */,
 				903B4B952253DDFC00D17724 /* ClubAsmLearnView.swift */,
+				90C3C6DD22549C6C000BA98F /* ClubAsmVictoryView.swift */,
 			);
 			path = "part 1";
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				904CB60322493D6A00F81F2D /* ClubAsmShadeTwistView.swift in Sources */,
 				901C8304224C019000DE47CE /* ClubAsmLegendsView.swift in Sources */,
 				900AFCDF224D3E1A0056EC0E /* ClubAsmFriendsView.swift in Sources */,
+				90C3C6DE22549C6C000BA98F /* ClubAsmVictoryView.swift in Sources */,
 				903B4B942253C7C100D17724 /* ClubAsmRelaxView.swift in Sources */,
 				90AC3AC9224A8E7F006483D4 /* ClubAsmActions.swift in Sources */,
 			);
