@@ -21,21 +21,22 @@ class ClubAsmVictoryView: UIView, ClubAsmActions {
 
         guard let image = UIImage(named: "clubasmvictory") else { return }
         guard let sineImage = UIImage(named: "clubasmsine")?.withRenderingMode(.alwaysTemplate) else { return }
-
+        guard let imageMask = UIImage(named: "clubasmvictorymask") else { return }
+        
         for i in 0..<7 {
             let imageY = image.size.height * CGFloat(i)
             let imageX = (self.bounds.size.width / 2.0) - (image.size.width / 2.0)
-            let offset: CGFloat = 20
             
             let sineY = imageY + (image.size.height / 2.0) - (sineImage.size.height / 2.0)
             let sineView = UIView(frame: CGRect(x: 0, y: sineY, width: self.bounds.size.width, height: sineImage.size.height))
             sineView.backgroundColor = UIColor.init(patternImage: sineImage)
             addSubview(sineView)
             
-            let mask = UIView(frame: sineView.bounds)
-            mask.frame.origin.x = imageX - offset
-            mask.frame.size.width = image.size.width + (offset * 2.0)
-            mask.backgroundColor = .white
+            let mask = UIImageView(image: imageMask)
+            mask.frame.size.width = imageMask.size.width
+            mask.frame.size.height = imageMask.size.height
+            mask.frame.origin.x = imageX + (image.size.width / 2.0) - (imageMask.size.width / 2.0)
+            mask.frame.origin.y = (sineView.bounds.size.height / 2.0) - (imageMask.size.height / 2.0)
             sineView.mask = mask
             self.sines.append(sineView)
             
