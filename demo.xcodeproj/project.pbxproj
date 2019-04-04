@@ -27,6 +27,7 @@
 		9071FEA8225671820097D730 /* bokeh.png in Resources */ = {isa = PBXBuildFile; fileRef = 9071FEA6225671820097D730 /* bokeh.png */; };
 		9071FEA9225671820097D730 /* boom.scnp in Resources */ = {isa = PBXBuildFile; fileRef = 9071FEA7225671820097D730 /* boom.scnp */; };
 		9071FEAB225671E20097D730 /* asm_a.dae in Resources */ = {isa = PBXBuildFile; fileRef = 9071FEAA225671E20097D730 /* asm_a.dae */; };
+		9071FEAD225677980097D730 /* ClubAsmAssemblyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9071FEAC225677980097D730 /* ClubAsmAssemblyView.swift */; };
 		90AC3AC7224A8820006483D4 /* ClubAsmGlobalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3AC6224A8820006483D4 /* ClubAsmGlobalView.swift */; };
 		90AC3AC9224A8E7F006483D4 /* ClubAsmActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3AC8224A8E7F006483D4 /* ClubAsmActions.swift */; };
 		90AC3ACB224A9E3E006483D4 /* ClubAsmLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3ACA224A9E3E006483D4 /* ClubAsmLocalView.swift */; };
@@ -56,6 +57,7 @@
 		9071FEA6225671820097D730 /* bokeh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bokeh.png; sourceTree = "<group>"; };
 		9071FEA7225671820097D730 /* boom.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = boom.scnp; sourceTree = "<group>"; };
 		9071FEAA225671E20097D730 /* asm_a.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = asm_a.dae; sourceTree = "<group>"; };
+		9071FEAC225677980097D730 /* ClubAsmAssemblyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmAssemblyView.swift; sourceTree = "<group>"; };
 		90AC3AC6224A8820006483D4 /* ClubAsmGlobalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmGlobalView.swift; sourceTree = "<group>"; };
 		90AC3AC8224A8E7F006483D4 /* ClubAsmActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmActions.swift; sourceTree = "<group>"; };
 		90AC3ACA224A9E3E006483D4 /* ClubAsmLocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmLocalView.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				9071FEA32256704D0097D730 /* star.png */,
 				9071FEA6225671820097D730 /* bokeh.png */,
 				9071FEA7225671820097D730 /* boom.scnp */,
+				9071FEAC225677980097D730 /* ClubAsmAssemblyView.swift */,
 			);
 			path = "part 2";
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				901C8302224BFCDE00DE47CE /* ClubAsmContendersView.swift in Sources */,
 				903B4B912252875700D17724 /* ClubAsmGamingView.swift in Sources */,
 				904CB60322493D6A00F81F2D /* ClubAsmRivalsView.swift in Sources */,
+				9071FEAD225677980097D730 /* ClubAsmAssemblyView.swift in Sources */,
 				901C8304224C019000DE47CE /* ClubAsmLegendsView.swift in Sources */,
 				900AFCDF224D3E1A0056EC0E /* ClubAsmFriendsView.swift in Sources */,
 				90C3C6DE22549C6C000BA98F /* ClubAsmVictoryView.swift in Sources */,

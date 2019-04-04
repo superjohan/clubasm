@@ -11,12 +11,10 @@ import AVFoundation
 import SceneKit
 import Foundation
 
-class ClubAsmViewController: UIViewController, SCNSceneRendererDelegate {
+class ClubAsmViewController: UIViewController {
     let autostart = true
     
     let audioPlayer: AVAudioPlayer
-    let sceneView = SCNView()
-    let camera = SCNNode()
     let startButton: UIButton
     let qtFoolingBgView: UIView = UIView.init(frame: CGRect.zero)
     
@@ -25,6 +23,8 @@ class ClubAsmViewController: UIViewController, SCNSceneRendererDelegate {
     
     let part1view = UIView(frame: .zero)
     var part1views = [ClubAsmActions]()
+    
+    let part2view = ClubAsmAssemblyView(frame: .zero)
     
     var currentView: ClubAsmActions?
     
@@ -40,15 +40,6 @@ class ClubAsmViewController: UIViewController, SCNSceneRendererDelegate {
         } else {
             abort()
         }
-        
-        let camera = SCNCamera()
-        camera.zFar = 600
-//        camera.vignettingIntensity = 1
-//        camera.vignettingPower = 1
-//        camera.colorFringeStrength = 3
-//        camera.bloomIntensity = 1
-//        camera.bloomBlurRadius = 40
-        self.camera.camera = camera // lol
         
         let startButtonText =
             "\"club asm\"\n" +
@@ -70,16 +61,14 @@ class ClubAsmViewController: UIViewController, SCNSceneRendererDelegate {
         self.startButton.addTarget(self, action: #selector(startButtonTouched), for: UIControl.Event.touchUpInside)
         
         self.view.backgroundColor = .black
-        self.sceneView.backgroundColor = .black
-        self.sceneView.delegate = self
         
         self.qtFoolingBgView.backgroundColor = UIColor(white: 0.1, alpha: 1.0)
         
         // barely visible tiny view for fooling Quicktime player. completely black images are ignored by QT
         self.view.addSubview(self.qtFoolingBgView)
         
-        self.view.addSubview(self.sceneView)
         self.view.addSubview(self.part1view)
+        self.view.addSubview(self.part2view)
 
         if !self.autostart {
             self.view.addSubview(self.startButton)
@@ -98,8 +87,6 @@ class ClubAsmViewController: UIViewController, SCNSceneRendererDelegate {
         super.viewDidLoad()
 
         self.audioPlayer.prepareToPlay()
-        
-        self.sceneView.scene = createScene()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -112,12 +99,12 @@ class ClubAsmViewController: UIViewController, SCNSceneRendererDelegate {
             height: 2
         )
 
-        self.sceneView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height)
-        self.sceneView.isHidden = true
-
         self.part1view.frame = self.view.bounds
         self.part1view.isHidden = true
-        
+
+        self.part2view.frame = self.view.bounds
+        self.part2view.isHidden = true
+
         let frame = self.view.bounds
         
         self.part1views.append(ClubAsmGlobalView(frame: frame))
@@ -153,14 +140,6 @@ class ClubAsmViewController: UIViewController, SCNSceneRendererDelegate {
         super.viewDidDisappear(animated)
         
         self.audioPlayer.stop()
-    }
-    
-    // MARK: - SCNSceneRendererDelegate
-
-    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-        // this function is run in a background thread.
-//        DispatchQueue.main.async {
-//        }
     }
     
     // MARK: - Private
@@ -278,27 +257,5 @@ class ClubAsmViewController: UIViewController, SCNSceneRendererDelegate {
             currentView?.isHidden = true
             self.currentView?.isHidden = false
         }
-    }
-
-    fileprivate func createScene() -> SCNScene {
-        let scene = SCNScene()
-        scene.background.contents = UIColor.black
-        
-        self.camera.position = SCNVector3Make(0, 0, 58)
-        
-        scene.rootNode.addChildNode(self.camera)
-        
-        configureLight(scene)
-        
-        return scene
-    }
-    
-    fileprivate func configureLight(_ scene: SCNScene) {
-        let omniLightNode = SCNNode()
-        omniLightNode.light = SCNLight()
-        omniLightNode.light?.type = SCNLight.LightType.omni
-        omniLightNode.light?.color = UIColor(white: 1.0, alpha: 1.0)
-        omniLightNode.position = SCNVector3Make(0, 0, 60)
-        scene.rootNode.addChildNode(omniLightNode)
     }
 }
