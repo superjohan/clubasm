@@ -22,6 +22,8 @@
 		905B95BC2247850700E278C2 /* ClubAsmConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905B95BB2247850700E278C2 /* ClubAsmConstants.swift */; };
 		905B95BE2247886200E278C2 /* soundtrack.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 905B95BD2247886200E278C2 /* soundtrack.m4a */; };
 		9071FEA022550BF60097D730 /* ClubAsmDefeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9071FE9F22550BF60097D730 /* ClubAsmDefeatView.swift */; };
+		9071FEA42256704D0097D730 /* stars.scnp in Resources */ = {isa = PBXBuildFile; fileRef = 9071FEA22256704D0097D730 /* stars.scnp */; };
+		9071FEA52256704D0097D730 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 9071FEA32256704D0097D730 /* star.png */; };
 		90AC3AC7224A8820006483D4 /* ClubAsmGlobalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3AC6224A8820006483D4 /* ClubAsmGlobalView.swift */; };
 		90AC3AC9224A8E7F006483D4 /* ClubAsmActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3AC8224A8E7F006483D4 /* ClubAsmActions.swift */; };
 		90AC3ACB224A9E3E006483D4 /* ClubAsmLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3ACA224A9E3E006483D4 /* ClubAsmLocalView.swift */; };
@@ -46,6 +48,8 @@
 		905B95BB2247850700E278C2 /* ClubAsmConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmConstants.swift; sourceTree = "<group>"; };
 		905B95BD2247886200E278C2 /* soundtrack.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = soundtrack.m4a; sourceTree = "<group>"; };
 		9071FE9F22550BF60097D730 /* ClubAsmDefeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmDefeatView.swift; sourceTree = "<group>"; };
+		9071FEA22256704D0097D730 /* stars.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = stars.scnp; sourceTree = "<group>"; };
+		9071FEA32256704D0097D730 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		90AC3AC6224A8820006483D4 /* ClubAsmGlobalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmGlobalView.swift; sourceTree = "<group>"; };
 		90AC3AC8224A8E7F006483D4 /* ClubAsmActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmActions.swift; sourceTree = "<group>"; };
 		90AC3ACA224A9E3E006483D4 /* ClubAsmLocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmLocalView.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				903B4B922252948E00D17724 /* part 1 */,
+				9071FEA12256702B0097D730 /* part 2 */,
 				905B95BD2247886200E278C2 /* soundtrack.m4a */,
 				9042B7242056F88C000DB49A /* AppDelegate.swift */,
 				905B95BB2247850700E278C2 /* ClubAsmConstants.swift */,
@@ -112,6 +117,15 @@
 				9042B7302056F88C000DB49A /* Info.plist */,
 			);
 			path = demo;
+			sourceTree = "<group>";
+		};
+		9071FEA12256702B0097D730 /* part 2 */ = {
+			isa = PBXGroup;
+			children = (
+				9071FEA22256704D0097D730 /* stars.scnp */,
+				9071FEA32256704D0097D730 /* star.png */,
+			);
+			path = "part 2";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +189,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				905B95BE2247886200E278C2 /* soundtrack.m4a in Resources */,
+				9071FEA52256704D0097D730 /* star.png in Resources */,
+				9071FEA42256704D0097D730 /* stars.scnp in Resources */,
 				9042B72F2056F88C000DB49A /* LaunchScreen.storyboard in Resources */,
 				9042B72C2056F88C000DB49A /* Assets.xcassets in Resources */,
 			);
