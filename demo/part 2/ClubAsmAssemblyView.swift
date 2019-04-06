@@ -30,6 +30,13 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
         camera.bloomBlurRadius = 20
         camera.wantsHDR = true
         camera.motionBlurIntensity = 1
+
+//        camera.wantsDepthOfField = true
+//        camera.focusDistance = 0.075
+//        camera.fStop = 1
+//        camera.apertureBladeCount = 10
+//        camera.focalBlurSampleCount = 100
+
         self.camera.camera = camera // lol
 
         super.init(frame: frame)
