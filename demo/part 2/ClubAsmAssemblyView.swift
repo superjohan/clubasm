@@ -114,7 +114,7 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
         let box = SCNBox(width: 8, height: 11, length: 2, chamferRadius: 0)
         box.firstMaterial?.diffuse.contents = UIColor.green
         let boxNode = SCNNode(geometry: box)
-
+        boxNode.renderingOrder = 1
         self.assemblyLogo = boxNode
 
         self.logoWrapper.position = SCNVector3Make(0, -20, 25)
@@ -125,7 +125,9 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
         configureLight(scene)
         
         let starField = SCNParticleSystem(named: "stars", inDirectory: nil)!
-        scene.rootNode.addParticleSystem(starField)
+        let starFieldNode = SCNNode()
+        starFieldNode.addParticleSystem(starField)
+        scene.rootNode.addChildNode(starFieldNode)
         self.starField = starField
 
         self.explosion = SCNParticleSystem(named: "boom", inDirectory: nil)
