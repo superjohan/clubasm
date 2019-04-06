@@ -38,3 +38,13 @@ func setColorInChildnodes(node: SCNNode, color: UIColor) {
         setColorInChildnodes(node: childNode, color: color)
     }
 }
+
+func applyShader(object: SCNGeometry, shaderName: String, size: CGSize) {
+    do {
+        object.firstMaterial?.shaderModifiers = [
+            SCNShaderModifierEntryPoint.fragment: try String(contentsOfFile: Bundle.main.path(forResource: shaderName, ofType: "fsh")!, encoding: String.Encoding.utf8)
+        ]
+    } catch {}
+    
+    object.firstMaterial?.setValue(CGPoint(x: size.width, y: size.width), forKey: "resolution")
+}
