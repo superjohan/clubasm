@@ -9,7 +9,9 @@
 import Foundation
 
 struct ClubAsmConstants {
-    
+    static let bpm = 140.0
+    static let barLength = (120.0 / ClubAsmConstants.bpm) * 2.0
+    static let tickLength = ClubAsmConstants.barLength / 16.0
 }
 
 struct ClubAsmPositions {

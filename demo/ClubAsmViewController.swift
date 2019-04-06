@@ -165,9 +165,8 @@ class ClubAsmViewController: UIViewController {
     }
     
     private func scheduleEvents() {
-        let bpm = 140.0
-        let bar = (120.0 / bpm) * 2.0
-        let tick = bar / 16.0
+        let bar = ClubAsmConstants.barLength
+        let tick = ClubAsmConstants.tickLength
 
         var position = 0
         
