@@ -17,6 +17,7 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
     private var assemblyLogo: SCNNode?
     private var starField: SCNParticleSystem?
     private var explosion: SCNParticleSystem?
+    private let explosionNode = SCNNode()
     
     private var position = 0
     
@@ -89,7 +90,7 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
         }
         
         if self.position == 8 {
-            self.sceneView.scene?.rootNode.addParticleSystem(self.explosion!)
+            self.explosionNode.addParticleSystem(self.explosion!)
         }
         
         self.position += 1
@@ -139,6 +140,9 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
         scene.rootNode.addChildNode(starFieldNode)
         self.starField = starField
 
+        self.explosionNode.renderingOrder = 1
+        scene.rootNode.addChildNode(self.explosionNode)
+        
         self.explosion = SCNParticleSystem(named: "boom", inDirectory: nil)
         
         return scene
