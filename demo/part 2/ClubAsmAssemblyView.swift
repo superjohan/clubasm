@@ -18,6 +18,7 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
     private var starField: SCNParticleSystem?
     private var explosion: SCNParticleSystem?
     private let explosionNode = SCNNode()
+    private let light = SCNNode()
     
     private var position = 0
     
@@ -89,6 +90,14 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
             self.logoWrapper.runAction(logoFlightRotationAction)
         }
         
+        if self.position == 7 {
+            SCNTransaction.begin()
+            SCNTransaction.animationDuration = ClubAsmConstants.barLength
+            SCNTransaction.animationTimingFunction = CAMediaTimingFunction(name: .easeOut)
+            self.light.light?.color = UIColor(white: 1.0, alpha: 1.0)
+            SCNTransaction.commit()
+        }
+        
         if self.position == 8 {
             self.explosionNode.addParticleSystem(self.explosion!)
         }
@@ -149,12 +158,11 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
     }
     
     private func configureLight(_ scene: SCNScene) {
-        let omniLightNode = SCNNode()
-        omniLightNode.light = SCNLight()
-        omniLightNode.light?.type = SCNLight.LightType.omni
-        omniLightNode.light?.color = UIColor(white: 1.0, alpha: 1.0)
-        omniLightNode.position = SCNVector3Make(0, 0, 60)
-        scene.rootNode.addChildNode(omniLightNode)
+        self.light.light = SCNLight()
+        self.light.light?.type = SCNLight.LightType.omni
+        self.light.light?.color = UIColor(white: 0, alpha: 1.0)
+        self.light.position = SCNVector3Make(0, 0, 60)
+        scene.rootNode.addChildNode(self.light)
     }
     
     // MARK: - SCNSceneRendererDelegate
