@@ -252,6 +252,10 @@ class ClubAsmViewController: UIViewController {
             self.part1position += 1
         }
         
+        if self.position == ClubAsmPositions.raveStart {
+            self.currentView = self.part2view
+        }
+        
         if currentView !== self.currentView {
             currentView?.isHidden = true
             self.currentView?.isHidden = false
