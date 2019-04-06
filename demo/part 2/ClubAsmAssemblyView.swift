@@ -26,8 +26,9 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
         camera.vignettingIntensity = 1
         camera.vignettingPower = 1
         camera.colorFringeStrength = 0.5
-        camera.bloomIntensity = 1
-        camera.bloomBlurRadius = 40
+        camera.bloomIntensity = 0.25
+        camera.bloomBlurRadius = 20
+        camera.wantsHDR = true
         camera.motionBlurIntensity = 1
         self.camera.camera = camera // lol
 
