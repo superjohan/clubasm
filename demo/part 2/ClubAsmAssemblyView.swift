@@ -120,7 +120,8 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
 //        scene.rootNode.addChildNode(self.assemblyLogo)
 
         let box = SCNBox(width: 8, height: 11, length: 2, chamferRadius: 0)
-        box.firstMaterial?.diffuse.contents = UIColor.green
+        box.firstMaterial?.diffuse.contents = UIColor.gray
+        box.firstMaterial?.lightingModel = .physicallyBased
         let boxNode = SCNNode(geometry: box)
         boxNode.renderingOrder = 1
         self.assemblyLogo = boxNode
