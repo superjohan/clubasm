@@ -102,6 +102,13 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
             self.explosionNode.addParticleSystem(self.explosion!)
         }
         
+        if self.position == 9 {
+            let duration = ClubAsmConstants.barLength
+            let logoPositionAction = SCNAction.move(to: SCNVector3Make(0, 3, 0), duration: duration)
+            logoPositionAction.timingMode = .easeInEaseOut
+            self.logoWrapper.runAction(logoPositionAction)
+        }
+        
         self.position += 1
     }
     
