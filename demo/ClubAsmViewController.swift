@@ -104,6 +104,7 @@ class ClubAsmViewController: UIViewController {
 
         self.part2view.frame = self.view.bounds
         self.part2view.isHidden = true
+        self.part2view.setupShaders()
 
         let frame = self.view.bounds
         

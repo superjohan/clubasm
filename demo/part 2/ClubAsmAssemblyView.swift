@@ -54,6 +54,18 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setupShaders() {
+        /*
+        let plane = SCNPlane(width: 300, height: 300)
+        plane.firstMaterial?.diffuse.contents = UIColor.green
+        let size = CGSize(width: self.bounds.size.width * UIScreen.main.scale, height: self.bounds.size.height * UIScreen.main.scale)
+        applyShader(object: plane, shaderName: "plasma", size: size)
+        let planeNode = SCNNode(geometry: plane)
+        planeNode.position = SCNVector3Make(0, 0, -100)
+        self.sceneView.scene?.rootNode.addChildNode(planeNode)
+         */
+    }
+    
     func action1() {
         if self.position == 0 {
             let duration = ClubAsmConstants.barLength * 8
