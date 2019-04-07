@@ -13,12 +13,11 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
     private let sceneView = SCNView()
     private let camera = SCNNode()
     private let logoWrapper = SCNNode()
-    private let assemblyLogo = loadModel(name: "asm_a", textureName: nil, color: .darkGray)
+    private let assemblyLogo = loadModel(name: "asm_a", textureName: nil, color: .white)
     private var starField: SCNParticleSystem?
     private var explosion: SCNParticleSystem?
     private let explosionNode = SCNNode()
     private let light = SCNNode()
-    private let boxNode = SCNNode()
     private let plasma = SCNNode()
     
     private var position = 0
@@ -81,7 +80,6 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
             let logoRotateAction = SCNAction.rotateBy(x: 0, y: CGFloat.pi * 2, z: 0, duration: 5)
             logoRotateAction.timingMode = .linear
             self.assemblyLogo.runAction(SCNAction.repeatForever(logoRotateAction))
-            self.boxNode.runAction(SCNAction.repeatForever(logoRotateAction))
             
             let logoPositionAction = SCNAction.move(to: SCNVector3Make(0, 0, 0), duration: duration)
             logoPositionAction.timingMode = .easeOut
@@ -148,12 +146,6 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
         self.camera.rotation = SCNVector4Make(-0.2, 0, 0, 1)
         scene.rootNode.addChildNode(self.camera)
         
-        let box = SCNBox(width: 14, height: 14, length: 1, chamferRadius: 0.25)
-        box.firstMaterial?.diffuse.contents = UIColor.gray
-        box.firstMaterial?.lightingModel = .physicallyBased
-        self.boxNode.geometry = box
-        self.boxNode.renderingOrder = 1
-
         self.assemblyLogo.pivot = SCNMatrix4MakeTranslation(0.021, 0.019, 0.002)
         self.assemblyLogo.scale = SCNVector3Make(300, 300, 500)
         self.assemblyLogo.childNodes[0].geometry?.firstMaterial?.lightingModel = .physicallyBased
@@ -163,7 +155,6 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
         self.logoWrapper.position = SCNVector3Make(0, -20, 25)
         self.logoWrapper.rotation = SCNVector4Make(1, 0, 0, -Float.pi / 2.0)
         self.logoWrapper.addChildNode(self.assemblyLogo)
-        self.logoWrapper.addChildNode(boxNode)
         scene.rootNode.addChildNode(self.logoWrapper)
         
         configureLight(scene)
