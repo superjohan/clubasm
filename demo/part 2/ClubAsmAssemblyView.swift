@@ -108,6 +108,12 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
         
         if self.position == 8 {
             self.explosionNode.addParticleSystem(self.explosion!)
+
+            SCNTransaction.begin()
+            SCNTransaction.animationDuration = ClubAsmConstants.barLength * 2.0
+            SCNTransaction.animationTimingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+            self.plasma.opacity = 1
+            SCNTransaction.commit()
         }
         
         if self.position == 9 {
@@ -115,12 +121,6 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
             let logoPositionAction = SCNAction.move(to: SCNVector3Make(0, 3, 0), duration: duration)
             logoPositionAction.timingMode = .easeInEaseOut
             self.logoWrapper.runAction(logoPositionAction)
-            
-            SCNTransaction.begin()
-            SCNTransaction.animationDuration = duration
-            SCNTransaction.animationTimingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-            self.plasma.opacity = 1
-            SCNTransaction.commit()
         }
         
         self.position += 1
