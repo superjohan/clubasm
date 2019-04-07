@@ -13,8 +13,7 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
     private let sceneView = SCNView()
     private let camera = SCNNode()
     private let logoWrapper = SCNNode()
-//    private let assemblyLogo = loadModel(name: "asm_a", textureName: nil, color: UIColor.init(white: 0.95, alpha: 1.0))
-    private var assemblyLogo: SCNNode?
+    private let assemblyLogo = loadModel(name: "asm_a", textureName: nil, color: .white)
     private var starField: SCNParticleSystem?
     private var explosion: SCNParticleSystem?
     private let explosionNode = SCNNode()
@@ -71,7 +70,7 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
             
             let logoRotateAction = SCNAction.rotateBy(x: 0, y: CGFloat.pi * 2, z: 0, duration: 5)
             logoRotateAction.timingMode = .linear
-            self.assemblyLogo?.runAction(SCNAction.repeatForever(logoRotateAction))
+            self.assemblyLogo.runAction(SCNAction.repeatForever(logoRotateAction))
             
             let logoPositionAction = SCNAction.move(to: SCNVector3Make(0, 0, 0), duration: duration)
             logoPositionAction.timingMode = .easeOut
@@ -132,20 +131,15 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
         self.camera.rotation = SCNVector4Make(-0.2, 0, 0, 1)
         scene.rootNode.addChildNode(self.camera)
         
-//        self.assemblyLogo.position = SCNVector3Make(0, 0, 0)
-//        self.assemblyLogo.scale = SCNVector3Make(3, 3, 3)
-//        scene.rootNode.addChildNode(self.assemblyLogo)
-
-        let box = SCNBox(width: 8, height: 11, length: 2, chamferRadius: 0)
-        box.firstMaterial?.diffuse.contents = UIColor.gray
-        box.firstMaterial?.lightingModel = .physicallyBased
-        let boxNode = SCNNode(geometry: box)
-        boxNode.renderingOrder = 1
-        self.assemblyLogo = boxNode
+        self.assemblyLogo.pivot = SCNMatrix4MakeTranslation(0.021, 0.019, 0)
+        self.assemblyLogo.scale = SCNVector3Make(300, 300, 300)
+        self.assemblyLogo.childNodes[0].geometry?.firstMaterial?.lightingModel = .physicallyBased
+        self.assemblyLogo.renderingOrder = 1
+        self.assemblyLogo.childNodes[0].renderingOrder = 1
 
         self.logoWrapper.position = SCNVector3Make(0, -20, 25)
-        self.logoWrapper.addChildNode(self.assemblyLogo!)
         self.logoWrapper.rotation = SCNVector4Make(1, 0, 0, -Float.pi / 2.0)
+        self.logoWrapper.addChildNode(self.assemblyLogo)
         scene.rootNode.addChildNode(self.logoWrapper)
         
         configureLight(scene)
