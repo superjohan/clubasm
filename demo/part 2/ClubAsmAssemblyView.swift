@@ -19,6 +19,7 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
     private let explosionNode = SCNNode()
     private let light = SCNNode()
     private let boxNode = SCNNode()
+    private let plasma = SCNNode()
     
     private var position = 0
     
@@ -56,15 +57,13 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
     }
     
     func setupShaders() {
-        /*
         let plane = SCNPlane(width: 300, height: 300)
-        plane.firstMaterial?.diffuse.contents = UIColor.green
         let size = CGSize(width: self.bounds.size.width * UIScreen.main.scale, height: self.bounds.size.height * UIScreen.main.scale)
         applyShader(object: plane, shaderName: "plasma", size: size)
-        let planeNode = SCNNode(geometry: plane)
-        planeNode.position = SCNVector3Make(0, 0, -100)
-        self.sceneView.scene?.rootNode.addChildNode(planeNode)
-         */
+        self.plasma.geometry = plane
+        self.plasma.position = SCNVector3Make(0, 0, -100)
+        self.plasma.opacity = 0.0001
+        self.sceneView.scene?.rootNode.addChildNode(self.plasma)
     }
     
     func action1() {
@@ -118,6 +117,12 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
             let logoPositionAction = SCNAction.move(to: SCNVector3Make(0, 3, 0), duration: duration)
             logoPositionAction.timingMode = .easeInEaseOut
             self.logoWrapper.runAction(logoPositionAction)
+            
+            SCNTransaction.begin()
+            SCNTransaction.animationDuration = duration
+            SCNTransaction.animationTimingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+            self.plasma.opacity = 1
+            SCNTransaction.commit()
         }
         
         self.position += 1
