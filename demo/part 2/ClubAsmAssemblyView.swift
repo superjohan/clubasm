@@ -19,7 +19,9 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
     private let explosionNode = SCNNode()
     private let light = SCNNode()
     private let plasma = SCNNode()
-    
+    private let ballNode1 = SCNNode()
+    private let ballNode2 = SCNNode()
+
     private var textNodes = [SCNNode]()
     private var position = 0
     
@@ -64,6 +66,26 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
         self.plasma.position = SCNVector3Make(0, 0, -100)
         self.plasma.opacity = 0.0001
         self.sceneView.scene?.rootNode.addChildNode(self.plasma)
+        
+        let ballPlane1 = SCNPlane(width: 100, height: 50)
+        let ballPlane1Size = CGSize(width: (self.bounds.size.width / 2.0) * UIScreen.main.scale, height: self.bounds.size.height * UIScreen.main.scale)
+        applyShader(object: ballPlane1, shaderName: "metaballs", size: ballPlane1Size)
+        ballPlane1.firstMaterial?.setValue(0, forKey: "offset")
+        self.ballNode1.geometry = ballPlane1
+        self.ballNode1.position = SCNVector3Make(0, 0, 10)
+        self.ballNode1.opacity = 0.0001
+        self.ballNode1.renderingOrder = 1
+        self.sceneView.scene?.rootNode.addChildNode(self.ballNode1)
+
+        let ballPlane2 = SCNPlane(width: 100, height: 50)
+        let ballPlane2Size = CGSize(width: self.bounds.size.width * UIScreen.main.scale, height: self.bounds.size.height * UIScreen.main.scale)
+        applyShader(object: ballPlane2, shaderName: "metaballs", size: ballPlane2Size)
+        ballPlane2.firstMaterial?.setValue(10.0, forKey: "offset")
+        self.ballNode2.geometry = ballPlane2
+        self.ballNode2.position = SCNVector3Make(0, 0, -10)
+        self.ballNode2.opacity = 0.0001
+        self.ballNode2.renderingOrder = 1
+        self.sceneView.scene?.rootNode.addChildNode(self.ballNode2)
     }
     
     func action1() {
@@ -139,6 +161,9 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
         if self.position == 15 {
             let duration = ClubAsmConstants.barLength
             self.logoWrapper.runAction(SCNAction.fadeOut(duration: duration))
+
+            self.ballNode1.runAction(SCNAction.fadeIn(duration: duration))
+            self.ballNode2.runAction(SCNAction.fadeIn(duration: duration))
         }
         
         if self.position == 16 {
