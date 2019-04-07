@@ -29,6 +29,7 @@
 		9071FEAB225671E20097D730 /* asm_a.dae in Resources */ = {isa = PBXBuildFile; fileRef = 9071FEAA225671E20097D730 /* asm_a.dae */; };
 		9071FEAD225677980097D730 /* ClubAsmAssemblyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9071FEAC225677980097D730 /* ClubAsmAssemblyView.swift */; };
 		9071FEAF225679CB0097D730 /* ClubAsmSceneKitUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9071FEAE225679CB0097D730 /* ClubAsmSceneKitUtils.swift */; };
+		908228A22259058900EC81EC /* metaballs.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 908228A12259058900EC81EC /* metaballs.fsh */; };
 		90AC3AC7224A8820006483D4 /* ClubAsmGlobalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3AC6224A8820006483D4 /* ClubAsmGlobalView.swift */; };
 		90AC3AC9224A8E7F006483D4 /* ClubAsmActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3AC8224A8E7F006483D4 /* ClubAsmActions.swift */; };
 		90AC3ACB224A9E3E006483D4 /* ClubAsmLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3ACA224A9E3E006483D4 /* ClubAsmLocalView.swift */; };
@@ -60,6 +61,7 @@
 		9071FEAA225671E20097D730 /* asm_a.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = asm_a.dae; sourceTree = "<group>"; };
 		9071FEAC225677980097D730 /* ClubAsmAssemblyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmAssemblyView.swift; sourceTree = "<group>"; };
 		9071FEAE225679CB0097D730 /* ClubAsmSceneKitUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmSceneKitUtils.swift; sourceTree = "<group>"; };
+		908228A12259058900EC81EC /* metaballs.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = metaballs.fsh; sourceTree = "<group>"; };
 		90AC3AC6224A8820006483D4 /* ClubAsmGlobalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmGlobalView.swift; sourceTree = "<group>"; };
 		90AC3AC8224A8E7F006483D4 /* ClubAsmActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmActions.swift; sourceTree = "<group>"; };
 		90AC3ACA224A9E3E006483D4 /* ClubAsmLocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmLocalView.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				9071FEA7225671820097D730 /* boom.scnp */,
 				9071FEAC225677980097D730 /* ClubAsmAssemblyView.swift */,
 				9071FEAE225679CB0097D730 /* ClubAsmSceneKitUtils.swift */,
+				908228A12259058900EC81EC /* metaballs.fsh */,
 			);
 			path = "part 2";
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				9042B72F2056F88C000DB49A /* LaunchScreen.storyboard in Resources */,
 				9042B72C2056F88C000DB49A /* Assets.xcassets in Resources */,
 				9071FEA8225671820097D730 /* bokeh.png in Resources */,
+				908228A22259058900EC81EC /* metaballs.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
