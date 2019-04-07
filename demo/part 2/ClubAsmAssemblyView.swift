@@ -54,8 +54,6 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
         fatalError("init(coder:) has not been implemented")
     }
     
-    var animating = false
-    
     func action1() {
         if self.position == 0 {
             let duration = ClubAsmConstants.barLength * 8
