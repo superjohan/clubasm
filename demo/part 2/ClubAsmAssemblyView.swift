@@ -31,6 +31,7 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
         camera.bloomIntensity = 0.25
         camera.bloomBlurRadius = 20
         camera.wantsHDR = true
+        camera.wantsExposureAdaptation = false
         camera.motionBlurIntensity = 1
 
 //        camera.wantsDepthOfField = true
