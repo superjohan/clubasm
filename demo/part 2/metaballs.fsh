@@ -2,9 +2,10 @@
 #define PI 3.1415926535897932384626433832795
 
 uniform vec2 resolution;
+uniform float offset;
 
 vec2 iResolution = resolution;
-float iTime = u_time;
+float iTime = u_time + offset;
 vec2 fragCoord = gl_FragCoord.xy;
 
 vec2 coord = fragCoord/iResolution.xy;
