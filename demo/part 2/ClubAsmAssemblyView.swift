@@ -20,6 +20,7 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
     private let light = SCNNode()
     private let plasma = SCNNode()
     
+    private var textNodes = [SCNNode]()
     private var position = 0
     
     override init(frame: CGRect) {
@@ -123,7 +124,54 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
             self.logoWrapper.runAction(logoPositionAction)
         }
         
+        if self.position == 10 {
+            showTextNode(index: 0)
+        }
+        
+        if self.position == 12 {
+            showTextNode(index: 1)
+        }
+        
+        if self.position == 14 {
+            showTextNode(index: 2)
+        }
+        
+        if self.position == 15 {
+            let duration = ClubAsmConstants.barLength
+            self.logoWrapper.runAction(SCNAction.fadeOut(duration: duration))
+        }
+        
+        if self.position == 16 {
+            showTextNode(index: 3)
+        }
+        
+        if self.position == 18 {
+            showTextNode(index: 4)
+        }
+        
+        if self.position == 20 {
+            showTextNode(index: 5)
+        }
+        
+        if self.position == 22 {
+            showTextNode(index: 6)
+        }
+        
         self.position += 1
+    }
+    
+    private func showTextNode(index: Int) {
+        self.textNodes[index].isHidden = false
+        
+        let duration = (ClubAsmConstants.barLength * 2.0) - (ClubAsmConstants.tickLength * 4.0)
+        let scaleAction = SCNAction.scale(to: 0.95, duration: duration)
+        self.textNodes[index].runAction(scaleAction)
+        
+        perform(#selector(hideTextNode(index:)), with: NSNumber(integerLiteral: index), afterDelay: duration)
+    }
+    
+    @objc private func hideTextNode(index: NSNumber) {
+        self.textNodes[index.intValue].isHidden = true
     }
     
     func action2() {
@@ -169,6 +217,24 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
         scene.rootNode.addChildNode(self.explosionNode)
         
         self.explosion = SCNParticleSystem(named: "boom", inDirectory: nil)
+
+        for i in 1...7 {
+            let textImage = UIImage(named: "clubasmmid\(i)")!
+            let textPlane = SCNPlane(width: 47, height: 47 * (textImage.size.height / textImage.size.width))
+            textPlane.firstMaterial?.diffuse.contents = textImage
+            let textNode = SCNNode(geometry: textPlane)
+            if i <= 3 {
+                textNode.position = SCNVector3Make(0, -6.5, 0)
+            } else {
+                textNode.position = SCNVector3Make(0, 0, 0)
+            }
+            textNode.constraints = [SCNBillboardConstraint()]
+            textNode.renderingOrder = 1
+            textNode.isHidden = true
+            scene.rootNode.addChildNode(textNode)
+            
+            self.textNodes.append(textNode)
+        }
         
         return scene
     }
