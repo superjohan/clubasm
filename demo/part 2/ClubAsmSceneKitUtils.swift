@@ -46,5 +46,5 @@ func applyShader(object: SCNGeometry, shaderName: String, size: CGSize) {
         ]
     } catch {}
     
-    object.firstMaterial?.setValue(CGPoint(x: size.width, y: size.width), forKey: "resolution")
+    object.firstMaterial?.setValue(CGPoint(x: size.width, y: size.height), forKey: "resolution")
 }
