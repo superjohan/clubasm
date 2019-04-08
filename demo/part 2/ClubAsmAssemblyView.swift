@@ -70,10 +70,9 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
         let ballPlaneSize = CGSize(width: self.bounds.size.width * UIScreen.main.scale, height: self.bounds.size.height * UIScreen.main.scale)
         applyShader(object: ballPlane, shaderName: "metaballs", size: ballPlaneSize)
         ballPlane.firstMaterial?.setValue(0, forKey: "offset")
+        ballPlane.firstMaterial?.setValue(0.0, forKey: "sphereSize")
         self.ballNode.geometry = ballPlane
         self.ballNode.position = SCNVector3Make(0, 0, -10)
-//        self.ballNode1.opacity = 0.0001
-        self.ballNode.isHidden = true
         self.ballNode.renderingOrder = 1
         self.sceneView.scene?.rootNode.addChildNode(self.ballNode)
     }
@@ -126,14 +125,21 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
             SCNTransaction.animationDuration = ClubAsmConstants.barLength * 2.0
             SCNTransaction.animationTimingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
             self.plasma.opacity = 1
+            self.camera.camera?.vignettingIntensity = 0
+            self.camera.camera?.vignettingPower = 0
+            self.camera.camera?.colorFringeStrength = 0
             SCNTransaction.commit()
         }
         
         if self.position == 9 {
             let duration = ClubAsmConstants.barLength
-            let logoPositionAction = SCNAction.move(to: SCNVector3Make(0, 3, 0), duration: duration)
-            logoPositionAction.timingMode = .easeInEaseOut
-            self.logoWrapper.runAction(logoPositionAction)
+            self.logoWrapper.runAction(SCNAction.fadeOut(duration: duration))
+
+            SCNTransaction.begin()
+            SCNTransaction.animationDuration = duration
+            SCNTransaction.animationTimingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+            self.ballNode.geometry?.firstMaterial?.setValue(0.5, forKey: "sphereSize")
+            SCNTransaction.commit()
         }
         
         if self.position == 10 {
@@ -147,16 +153,7 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
         if self.position == 14 {
             showTextNode(index: 2)
         }
-        
-        if self.position == 15 {
-            let duration = ClubAsmConstants.barLength
-            self.logoWrapper.runAction(SCNAction.fadeOut(duration: duration))
 
-//            self.ballNode1.runAction(SCNAction.fadeIn(duration: duration))
-//            self.ballNode2.runAction(SCNAction.fadeIn(duration: duration))
-            self.ballNode.isHidden = false
-        }
-        
         if self.position == 16 {
             showTextNode(index: 3)
         }

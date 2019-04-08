@@ -3,6 +3,7 @@
 
 uniform vec2 resolution;
 uniform float offset;
+uniform float sphereSize;
 
 vec2 iResolution = resolution;
 float iTime = u_time + offset;
@@ -19,7 +20,6 @@ vec3 color1 = vec3(1.0f, 0.0f, 0.573f);
 vec3 color2 = vec3(0.714f, 1.0f, 0.0f);
 
 float metaStickyness = 0.4f;
-float sphereSize = 0.3f;
 
 int calculateNormal = 1;
 float lightnessBias = 0.4;
