@@ -71,7 +71,7 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
         applyShader(object: ballPlane, shaderName: "metaballs", size: ballPlaneSize)
         ballPlane.firstMaterial?.setValue(0, forKey: "offset")
         self.ballNode.geometry = ballPlane
-        self.ballNode.position = SCNVector3Make(0, 0, 10)
+        self.ballNode.position = SCNVector3Make(0, 0, -10)
 //        self.ballNode1.opacity = 0.0001
         self.ballNode.isHidden = true
         self.ballNode.renderingOrder = 1
