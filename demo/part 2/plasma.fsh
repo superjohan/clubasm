@@ -20,10 +20,7 @@ float pix3 = atan2((iResolution.y/2.0+y3)-fragCoord.y,(iResolution.x/2.0+x3)-fra
 //    float shade = floor(3.999*(sin(pix1*8.0+pix2*8.0+pix3*8.0)+1.0)/2.0)/4.0;
 
 float shade = (sin(pix1*8.0)+sin(pix2*8.0)+sin(pix3*8.0))/3.0;
-float clamped = clamp(shade, 0.4, 1.0);
-float r = 0.3882352941 * clamped;
-float g = 0.6235294118 * clamped;
-float b = clamped;
+float adjusted = 0.9 + (shade * 0.1);
 
 // Output to screen
-_output.color = vec4(r, g, b, 1.0);
+_output.color = vec4(adjusted, adjusted, adjusted, 1.0);
