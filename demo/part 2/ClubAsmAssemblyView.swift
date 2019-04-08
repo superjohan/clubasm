@@ -184,7 +184,7 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
     }
     
     private func showTextNode(index: Int) {
-        self.textNodes[index].isHidden = false
+        self.textNodes[index].opacity = 1
         
         let duration = (ClubAsmConstants.barLength * 2.0) - (ClubAsmConstants.tickLength * 4.0)
         let scaleAction = SCNAction.scale(to: 0.95, duration: duration)
@@ -194,7 +194,7 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
     }
     
     @objc private func hideTextNode(index: NSNumber) {
-        self.textNodes[index.intValue].isHidden = true
+        self.textNodes[index.intValue].opacity = 0.0001
     }
     
     func action2() {
@@ -249,7 +249,7 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
             textNode.position = SCNVector3Make(0, 0, 0)
             textNode.constraints = [SCNBillboardConstraint()]
             textNode.renderingOrder = 1
-            textNode.isHidden = true
+            textNode.opacity = 0.0001
             scene.rootNode.addChildNode(textNode)
             
             self.textNodes.append(textNode)
