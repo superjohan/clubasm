@@ -183,8 +183,6 @@ class ClubAsmViewController: UIViewController {
     }
     
     @objc private func kick1() {
-        self.view.backgroundColor = .red
-        
         selectCurrentView()
 
         self.position += 1
@@ -193,26 +191,18 @@ class ClubAsmViewController: UIViewController {
     }
 
     @objc private func kick2() {
-        self.view.backgroundColor = .green
-
         self.currentView?.action2()
     }
 
     @objc private func kick3() {
-        self.view.backgroundColor = .blue
-
         self.currentView?.action3()
     }
 
     @objc private func kick4() {
-        self.view.backgroundColor = .yellow
-
         self.currentView?.action4()
     }
 
     @objc private func clap() {
-        self.view.backgroundColor = .orange
-
         self.currentView?.action5()
     }
 
