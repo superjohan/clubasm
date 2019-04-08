@@ -178,6 +178,8 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
         
         if self.position == 22 {
             showTextNode(index: 6)
+            let delay = (ClubAsmConstants.barLength * 2.0) - (ClubAsmConstants.tickLength * 4.0)
+            perform(#selector(hideView), with: nil, afterDelay: delay)
         }
         
         self.position += 1
@@ -195,6 +197,18 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
     
     @objc private func hideTextNode(index: NSNumber) {
         self.textNodes[index.intValue].opacity = 0.0001
+    }
+    
+    @objc private func hideView() {
+        self.overlay.alpha = 1
+        self.sceneView.isHidden = true
+        
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.1, options: [.curveEaseOut], animations: {
+            self.overlay.frame.origin.y = self.bounds.size.height / 2.0
+            self.overlay.frame.size.height = 0
+        }, completion: { done in
+            self.sceneView.removeFromSuperview()
+        })
     }
     
     func action2() {
