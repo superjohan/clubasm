@@ -236,14 +236,10 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
 
         for i in 1...7 {
             let textImage = UIImage(named: "clubasmmid\(i)")!
-            let textPlane = SCNPlane(width: 47, height: 47 * (textImage.size.height / textImage.size.width))
+            let textPlane = SCNPlane(width: 40, height: 40 * (textImage.size.height / textImage.size.width))
             textPlane.firstMaterial?.diffuse.contents = textImage
             let textNode = SCNNode(geometry: textPlane)
-            if i <= 3 {
-                textNode.position = SCNVector3Make(0, -6.5, 0)
-            } else {
-                textNode.position = SCNVector3Make(0, 0, 0)
-            }
+            textNode.position = SCNVector3Make(0, 0, 0)
             textNode.constraints = [SCNBillboardConstraint()]
             textNode.renderingOrder = 1
             textNode.isHidden = true
