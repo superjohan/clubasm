@@ -21,7 +21,7 @@ vec3 color2 = vec3(0.0f, 0.0f, 1.0f);
 
 float metaStickyness = 0.4f;
 
-int calculateNormal = 1;
+int calculateNormal = 0;
 float lightnessBias = 0.4;
 
 vec3 spheres[5];
