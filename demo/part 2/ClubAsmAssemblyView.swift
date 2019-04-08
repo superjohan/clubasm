@@ -70,7 +70,7 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
         let ballPlaneSize = CGSize(width: self.bounds.size.width * UIScreen.main.scale, height: self.bounds.size.height * UIScreen.main.scale)
         applyShader(object: ballPlane, shaderName: "metaballs", size: ballPlaneSize)
         ballPlane.firstMaterial?.setValue(0, forKey: "offset")
-        ballPlane.firstMaterial?.setValue(0.0, forKey: "sphereSize")
+        ballPlane.firstMaterial?.setValue(-0.1, forKey: "sphereSize")
         self.ballNode.geometry = ballPlane
         self.ballNode.position = SCNVector3Make(0, 0, -10)
         self.ballNode.renderingOrder = 1
