@@ -21,6 +21,8 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
     private let plasma = SCNNode()
     private let ballNode = SCNNode()
 
+    private let overlay = UIView()
+    
     private var textNodes = [SCNNode]()
     private var position = 0
     
@@ -49,6 +51,10 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
 //        self.sceneView.delegate = self
         self.sceneView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(self.sceneView)
+        
+        self.overlay.autoresizingMask = self.sceneView.autoresizingMask;
+        self.overlay.backgroundColor = .white
+        addSubview(self.overlay)
         
         self.sceneView.scene = createScene()
     }
@@ -79,6 +85,10 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
     
     func action1() {
         if self.position == 0 {
+            UIView.animate(withDuration: ClubAsmConstants.barLength * 2, animations: {
+                self.overlay.alpha = 0
+            })
+            
             let duration = ClubAsmConstants.barLength * 8
             
             let rotateAction = SCNAction.rotateTo(x: 0, y: 0, z: 0, duration: duration)
