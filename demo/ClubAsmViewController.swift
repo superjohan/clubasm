@@ -26,6 +26,9 @@ class ClubAsmViewController: UIViewController {
     
     let part2view = ClubAsmAssemblyView(frame: .zero)
     
+    let part3view = UIView(frame: .zero)
+    var part3views = [ClubAsmActions]()
+    
     var currentView: ClubAsmActions?
     
     // MARK: - UIViewController
@@ -69,7 +72,8 @@ class ClubAsmViewController: UIViewController {
         
         self.view.addSubview(self.part1view)
         self.view.addSubview(self.part2view)
-
+        self.view.addSubview(self.part3view)
+        
         if !self.autostart {
             self.view.addSubview(self.startButton)
         }
@@ -126,6 +130,16 @@ class ClubAsmViewController: UIViewController {
             view.isHidden = true
         }
 
+        self.part3view.frame = self.view.bounds
+        self.part3view.isHidden = true
+        
+        self.part3views.append(ClubAsmDemoIntroView(frame: frame))
+        
+        for view in self.part3views {
+            self.part3view.addSubview(view)
+            view.isHidden = true
+        }
+        
         self.startButton.frame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height)
     }
     
@@ -245,6 +259,16 @@ class ClubAsmViewController: UIViewController {
         
         if self.position == ClubAsmPositions.raveStart {
             self.currentView = self.part2view
+        }
+        
+        if self.position == ClubAsmPositions.beatBassline2Start {
+            self.part3view.isHidden = false
+            self.currentView = self.part3views[0]
+        }
+        
+        // FIXME: remove
+        if self.position == ClubAsmPositions.beatBassline2Start + 4 {
+            self.part3view.isHidden = true
         }
         
         if currentView !== self.currentView {
