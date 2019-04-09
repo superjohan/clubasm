@@ -31,6 +31,7 @@
 		9071FEAF225679CB0097D730 /* ClubAsmSceneKitUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9071FEAE225679CB0097D730 /* ClubAsmSceneKitUtils.swift */; };
 		908228A22259058900EC81EC /* metaballs.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 908228A12259058900EC81EC /* metaballs.fsh */; };
 		908228A4225A4D6100EC81EC /* plasma.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 908228A3225A4D6100EC81EC /* plasma.fsh */; };
+		908228A7225CD3D900EC81EC /* ClubAsmDemoIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908228A6225CD3D900EC81EC /* ClubAsmDemoIntroView.swift */; };
 		90AC3AC7224A8820006483D4 /* ClubAsmGlobalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3AC6224A8820006483D4 /* ClubAsmGlobalView.swift */; };
 		90AC3AC9224A8E7F006483D4 /* ClubAsmActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3AC8224A8E7F006483D4 /* ClubAsmActions.swift */; };
 		90AC3ACB224A9E3E006483D4 /* ClubAsmLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3ACA224A9E3E006483D4 /* ClubAsmLocalView.swift */; };
@@ -64,6 +65,7 @@
 		9071FEAE225679CB0097D730 /* ClubAsmSceneKitUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmSceneKitUtils.swift; sourceTree = "<group>"; };
 		908228A12259058900EC81EC /* metaballs.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = metaballs.fsh; sourceTree = "<group>"; };
 		908228A3225A4D6100EC81EC /* plasma.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = plasma.fsh; sourceTree = "<group>"; };
+		908228A6225CD3D900EC81EC /* ClubAsmDemoIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmDemoIntroView.swift; sourceTree = "<group>"; };
 		90AC3AC6224A8820006483D4 /* ClubAsmGlobalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmGlobalView.swift; sourceTree = "<group>"; };
 		90AC3AC8224A8E7F006483D4 /* ClubAsmActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmActions.swift; sourceTree = "<group>"; };
 		90AC3ACA224A9E3E006483D4 /* ClubAsmLocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmLocalView.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			children = (
 				903B4B922252948E00D17724 /* part 1 */,
 				9071FEA12256702B0097D730 /* part 2 */,
+				908228A5225CD3B200EC81EC /* part 3 */,
 				905B95BD2247886200E278C2 /* soundtrack.m4a */,
 				9042B7242056F88C000DB49A /* AppDelegate.swift */,
 				905B95BB2247850700E278C2 /* ClubAsmConstants.swift */,
@@ -147,6 +150,14 @@
 				908228A3225A4D6100EC81EC /* plasma.fsh */,
 			);
 			path = "part 2";
+			sourceTree = "<group>";
+		};
+		908228A5225CD3B200EC81EC /* part 3 */ = {
+			isa = PBXGroup;
+			children = (
+				908228A6225CD3D900EC81EC /* ClubAsmDemoIntroView.swift */,
+			);
+			path = "part 3";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +253,7 @@
 				904CB60322493D6A00F81F2D /* ClubAsmRivalsView.swift in Sources */,
 				9071FEAF225679CB0097D730 /* ClubAsmSceneKitUtils.swift in Sources */,
 				9071FEAD225677980097D730 /* ClubAsmAssemblyView.swift in Sources */,
+				908228A7225CD3D900EC81EC /* ClubAsmDemoIntroView.swift in Sources */,
 				901C8304224C019000DE47CE /* ClubAsmLegendsView.swift in Sources */,
 				900AFCDF224D3E1A0056EC0E /* ClubAsmFriendsView.swift in Sources */,
 				90C3C6DE22549C6C000BA98F /* ClubAsmVictoryView.swift in Sources */,
