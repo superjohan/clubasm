@@ -231,12 +231,21 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
         self.camera.rotation = SCNVector4Make(-0.2, 0, 0, 1)
         scene.rootNode.addChildNode(self.camera)
         
-        self.assemblyLogo.pivot = SCNMatrix4MakeTranslation(0.021, 0.019, 0.002)
-        self.assemblyLogo.scale = SCNVector3Make(300, 300, 500)
-        self.assemblyLogo.childNodes[0].geometry?.firstMaterial?.lightingModel = .physicallyBased
+        self.assemblyLogo.pivot = SCNMatrix4MakeTranslation(0, 0, 0.2)
+        self.assemblyLogo.scale = SCNVector3Make(2, 2, 4)
         self.assemblyLogo.renderingOrder = 1
         self.assemblyLogo.childNodes[0].renderingOrder = 1
 
+        let material = self.assemblyLogo.childNodes[0].geometry?.materials[0]
+        material?.ambient.contents = UIColor.black
+        material?.diffuse.contents = UIColor(white: 0.1, alpha: 1)
+        material?.specular.contents = UIColor.white
+        material?.emission.contents = UIColor.black
+        material?.transparent.contents = UIColor.white
+        material?.reflective.contents = UIColor.black
+        material?.multiply.contents = UIColor.white
+        material?.normal.contents = UIColor.black
+        
         self.logoWrapper.position = SCNVector3Make(0, -20, 25)
         self.logoWrapper.rotation = SCNVector4Make(1, 0, 0, -Float.pi / 2.0)
         self.logoWrapper.addChildNode(self.assemblyLogo)
