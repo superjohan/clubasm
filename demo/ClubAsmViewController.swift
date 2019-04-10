@@ -134,6 +134,7 @@ class ClubAsmViewController: UIViewController {
         self.part3view.isHidden = true
         
         self.part3views.append(ClubAsmDemoIntroView(frame: frame))
+        self.part3views.append(ClubAsmCompoCircleView(frame: frame))
         
         for view in self.part3views {
             self.part3view.addSubview(view)
@@ -266,11 +267,16 @@ class ClubAsmViewController: UIViewController {
             self.currentView = self.part3views[0]
         }
         
-        // FIXME: remove
         if self.position == ClubAsmPositions.beatBassline2Start + 4 {
+            self.part3view.isHidden = false
+            self.currentView = self.part3views[1]
+        }
+
+        if self.position == ClubAsmPositions.beatBassline2Start + 8 {
             self.part3view.isHidden = true
         }
         
+        // FIXME: remove
         if currentView !== self.currentView {
             currentView?.isHidden = true
             self.currentView?.isHidden = false
