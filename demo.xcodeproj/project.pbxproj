@@ -32,6 +32,8 @@
 		908228A22259058900EC81EC /* metaballs.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 908228A12259058900EC81EC /* metaballs.fsh */; };
 		908228A4225A4D6100EC81EC /* plasma.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 908228A3225A4D6100EC81EC /* plasma.fsh */; };
 		908228A7225CD3D900EC81EC /* ClubAsmDemoIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908228A6225CD3D900EC81EC /* ClubAsmDemoIntroView.swift */; };
+		908228A9225E24AA00EC81EC /* asm19_a_wTextures.dae in Resources */ = {isa = PBXBuildFile; fileRef = 908228A8225E24AA00EC81EC /* asm19_a_wTextures.dae */; };
+		908228AB225E24E300EC81EC /* metal.png in Resources */ = {isa = PBXBuildFile; fileRef = 908228AA225E24E300EC81EC /* metal.png */; };
 		90AC3AC7224A8820006483D4 /* ClubAsmGlobalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3AC6224A8820006483D4 /* ClubAsmGlobalView.swift */; };
 		90AC3AC9224A8E7F006483D4 /* ClubAsmActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3AC8224A8E7F006483D4 /* ClubAsmActions.swift */; };
 		90AC3ACB224A9E3E006483D4 /* ClubAsmLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3ACA224A9E3E006483D4 /* ClubAsmLocalView.swift */; };
@@ -66,6 +68,8 @@
 		908228A12259058900EC81EC /* metaballs.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = metaballs.fsh; sourceTree = "<group>"; };
 		908228A3225A4D6100EC81EC /* plasma.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = plasma.fsh; sourceTree = "<group>"; };
 		908228A6225CD3D900EC81EC /* ClubAsmDemoIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmDemoIntroView.swift; sourceTree = "<group>"; };
+		908228A8225E24AA00EC81EC /* asm19_a_wTextures.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = asm19_a_wTextures.dae; sourceTree = "<group>"; };
+		908228AA225E24E300EC81EC /* metal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metal.png; sourceTree = "<group>"; };
 		90AC3AC6224A8820006483D4 /* ClubAsmGlobalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmGlobalView.swift; sourceTree = "<group>"; };
 		90AC3AC8224A8E7F006483D4 /* ClubAsmActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmActions.swift; sourceTree = "<group>"; };
 		90AC3ACA224A9E3E006483D4 /* ClubAsmLocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmLocalView.swift; sourceTree = "<group>"; };
@@ -140,6 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				9071FEAA225671E20097D730 /* asm_a.dae */,
+				908228A8225E24AA00EC81EC /* asm19_a_wTextures.dae */,
+				908228AA225E24E300EC81EC /* metal.png */,
 				9071FEA22256704D0097D730 /* stars.scnp */,
 				9071FEA32256704D0097D730 /* star.png */,
 				9071FEA6225671820097D730 /* bokeh.png */,
@@ -223,6 +229,8 @@
 				905B95BE2247886200E278C2 /* soundtrack.m4a in Resources */,
 				908228A4225A4D6100EC81EC /* plasma.fsh in Resources */,
 				9071FEA52256704D0097D730 /* star.png in Resources */,
+				908228AB225E24E300EC81EC /* metal.png in Resources */,
+				908228A9225E24AA00EC81EC /* asm19_a_wTextures.dae in Resources */,
 				9071FEAB225671E20097D730 /* asm_a.dae in Resources */,
 				9071FEA42256704D0097D730 /* stars.scnp in Resources */,
 				9071FEA9225671820097D730 /* boom.scnp in Resources */,
