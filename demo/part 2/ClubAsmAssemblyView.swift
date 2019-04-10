@@ -13,7 +13,7 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
     private let sceneView = SCNView()
     private let camera = SCNNode()
     private let logoWrapper = SCNNode()
-    private let assemblyLogo = loadModel(name: "asm_a", textureName: nil, color: .white)
+    private let assemblyLogo = loadModel(name: "asm19_a_wTextures", textureName: nil, color: nil)
     private var starField: SCNParticleSystem?
     private var explosion: SCNParticleSystem?
     private let explosionNode = SCNNode()
