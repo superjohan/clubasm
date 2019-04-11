@@ -21,6 +21,8 @@ class ClubAsmViewController: UIViewController {
     var position = 0
     var part1position = 0
     
+    let creditView = ClubAsmCreditView(frame: .zero)
+    
     let part1view = UIView(frame: .zero)
     var part1views = [ClubAsmActions]()
     
@@ -74,6 +76,7 @@ class ClubAsmViewController: UIViewController {
         // barely visible tiny view for fooling Quicktime player. completely black images are ignored by QT
         self.view.addSubview(self.qtFoolingBgView)
         
+        self.view.addSubview(self.creditView)
         self.view.addSubview(self.part1view)
         self.view.addSubview(self.part2view)
         self.view.addSubview(self.part3view)
@@ -107,6 +110,9 @@ class ClubAsmViewController: UIViewController {
             height: 2
         )
 
+        self.creditView.frame = self.view.bounds
+        self.creditView.isHidden = true
+        
         self.part1view.frame = self.view.bounds
         self.part1view.isHidden = true
 
@@ -228,6 +234,17 @@ class ClubAsmViewController: UIViewController {
 
     private func selectCurrentView() {
         let currentView = self.currentView
+        
+        if self.position == 0 {
+            self.creditView.isHidden = false
+            self.currentView = self.creditView
+        }
+        
+        if self.position == 4 {
+            // FIXME
+            self.currentView = nil
+            self.creditView.isHidden = true
+        }
         
         if self.position >= ClubAsmPositions.beatBasslineStart && self.position < ClubAsmPositions.raveStart {
             switch self.part1position {

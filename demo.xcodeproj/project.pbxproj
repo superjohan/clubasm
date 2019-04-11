@@ -36,6 +36,7 @@
 		908228AB225E24E300EC81EC /* metal.png in Resources */ = {isa = PBXBuildFile; fileRef = 908228AA225E24E300EC81EC /* metal.png */; };
 		908228AD225E4A2800EC81EC /* ClubAsmCompoCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908228AC225E4A2800EC81EC /* ClubAsmCompoCircleView.swift */; };
 		908228AF225F778300EC81EC /* ClubAsmCompoSquaresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908228AE225F778300EC81EC /* ClubAsmCompoSquaresView.swift */; };
+		908228B2225FB11400EC81EC /* ClubAsmCreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908228B1225FB11400EC81EC /* ClubAsmCreditView.swift */; };
 		90AC3AC7224A8820006483D4 /* ClubAsmGlobalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3AC6224A8820006483D4 /* ClubAsmGlobalView.swift */; };
 		90AC3AC9224A8E7F006483D4 /* ClubAsmActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3AC8224A8E7F006483D4 /* ClubAsmActions.swift */; };
 		90AC3ACB224A9E3E006483D4 /* ClubAsmLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3ACA224A9E3E006483D4 /* ClubAsmLocalView.swift */; };
@@ -74,6 +75,7 @@
 		908228AA225E24E300EC81EC /* metal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metal.png; sourceTree = "<group>"; };
 		908228AC225E4A2800EC81EC /* ClubAsmCompoCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmCompoCircleView.swift; sourceTree = "<group>"; };
 		908228AE225F778300EC81EC /* ClubAsmCompoSquaresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmCompoSquaresView.swift; sourceTree = "<group>"; };
+		908228B1225FB11400EC81EC /* ClubAsmCreditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmCreditView.swift; sourceTree = "<group>"; };
 		90AC3AC6224A8820006483D4 /* ClubAsmGlobalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmGlobalView.swift; sourceTree = "<group>"; };
 		90AC3AC8224A8E7F006483D4 /* ClubAsmActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmActions.swift; sourceTree = "<group>"; };
 		90AC3ACA224A9E3E006483D4 /* ClubAsmLocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmLocalView.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 		9042B7232056F88C000DB49A /* demo */ = {
 			isa = PBXGroup;
 			children = (
+				908228B0225FB10100EC81EC /* intro */,
 				903B4B922252948E00D17724 /* part 1 */,
 				9071FEA12256702B0097D730 /* part 2 */,
 				908228A5225CD3B200EC81EC /* part 3 */,
@@ -170,6 +173,14 @@
 				908228AE225F778300EC81EC /* ClubAsmCompoSquaresView.swift */,
 			);
 			path = "part 3";
+			sourceTree = "<group>";
+		};
+		908228B0225FB10100EC81EC /* intro */ = {
+			isa = PBXGroup;
+			children = (
+				908228B1225FB11400EC81EC /* ClubAsmCreditView.swift */,
+			);
+			path = intro;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +274,7 @@
 				908228AD225E4A2800EC81EC /* ClubAsmCompoCircleView.swift in Sources */,
 				9042B7252056F88C000DB49A /* AppDelegate.swift in Sources */,
 				903B4B962253DDFC00D17724 /* ClubAsmLearnView.swift in Sources */,
+				908228B2225FB11400EC81EC /* ClubAsmCreditView.swift in Sources */,
 				90AC3AC7224A8820006483D4 /* ClubAsmGlobalView.swift in Sources */,
 				901C8302224BFCDE00DE47CE /* ClubAsmContendersView.swift in Sources */,
 				903B4B912252875700D17724 /* ClubAsmGamingView.swift in Sources */,
