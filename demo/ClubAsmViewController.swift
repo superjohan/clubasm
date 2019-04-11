@@ -48,7 +48,11 @@ class ClubAsmViewController: UIViewController {
             "\"club asm\"\n" +
                 "by dekadence\n" +
                 "\n" +
-                "programming and music by ricky martin\n" +
+                "programming, music, and design by ricky martin\n" +
+                "shader programming by waffle and britelite\n" +
+                "3d by spiikki\n" +
+                "\n" +
+                "special thanks to rimina and myy for invaluable help\n" +
                 "\n" +
                 "presented at revision 2019\n" +
                 "\n" +
