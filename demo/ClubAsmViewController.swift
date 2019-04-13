@@ -23,6 +23,9 @@ class ClubAsmViewController: UIViewController {
     
     let creditView = ClubAsmCreditView(frame: .zero)
     
+    let logoView = UIView(frame: .zero)
+    var logoViews = [ClubAsmActions]()
+    
     let part1view = UIView(frame: .zero)
     var part1views = [ClubAsmActions]()
     
@@ -77,6 +80,7 @@ class ClubAsmViewController: UIViewController {
         self.view.addSubview(self.qtFoolingBgView)
         
         self.view.addSubview(self.creditView)
+        self.view.addSubview(self.logoView)
         self.view.addSubview(self.part1view)
         self.view.addSubview(self.part2view)
         self.view.addSubview(self.part3view)
@@ -113,6 +117,18 @@ class ClubAsmViewController: UIViewController {
         self.creditView.frame = self.view.bounds
         self.creditView.isHidden = true
         
+        self.logoView.frame = self.view.bounds
+        self.logoView.isHidden = true
+        
+        let frame = self.view.bounds
+        
+        self.logoViews.append(ClubAsmMacView(frame: frame))
+        
+        for view in self.logoViews {
+            self.logoView.addSubview(view)
+            view.isHidden = true
+        }
+        
         self.part1view.frame = self.view.bounds
         self.part1view.isHidden = true
 
@@ -120,8 +136,6 @@ class ClubAsmViewController: UIViewController {
         self.part2view.isHidden = true
         self.part2view.setupShaders()
 
-        let frame = self.view.bounds
-        
         self.part1views.append(ClubAsmGlobalView(frame: frame))
         self.part1views.append(ClubAsmLocalView(frame: frame))
         self.part1views.append(ClubAsmLegendsView(frame: frame))
