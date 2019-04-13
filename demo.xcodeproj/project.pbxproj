@@ -37,6 +37,7 @@
 		908228AD225E4A2800EC81EC /* ClubAsmCompoCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908228AC225E4A2800EC81EC /* ClubAsmCompoCircleView.swift */; };
 		908228AF225F778300EC81EC /* ClubAsmCompoSquaresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908228AE225F778300EC81EC /* ClubAsmCompoSquaresView.swift */; };
 		908228B2225FB11400EC81EC /* ClubAsmCreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908228B1225FB11400EC81EC /* ClubAsmCreditView.swift */; };
+		908228B4226219F700EC81EC /* ClubAsmMacView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908228B3226219F700EC81EC /* ClubAsmMacView.swift */; };
 		90AC3AC7224A8820006483D4 /* ClubAsmGlobalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3AC6224A8820006483D4 /* ClubAsmGlobalView.swift */; };
 		90AC3AC9224A8E7F006483D4 /* ClubAsmActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3AC8224A8E7F006483D4 /* ClubAsmActions.swift */; };
 		90AC3ACB224A9E3E006483D4 /* ClubAsmLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AC3ACA224A9E3E006483D4 /* ClubAsmLocalView.swift */; };
@@ -76,6 +77,7 @@
 		908228AC225E4A2800EC81EC /* ClubAsmCompoCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmCompoCircleView.swift; sourceTree = "<group>"; };
 		908228AE225F778300EC81EC /* ClubAsmCompoSquaresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmCompoSquaresView.swift; sourceTree = "<group>"; };
 		908228B1225FB11400EC81EC /* ClubAsmCreditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmCreditView.swift; sourceTree = "<group>"; };
+		908228B3226219F700EC81EC /* ClubAsmMacView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmMacView.swift; sourceTree = "<group>"; };
 		90AC3AC6224A8820006483D4 /* ClubAsmGlobalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmGlobalView.swift; sourceTree = "<group>"; };
 		90AC3AC8224A8E7F006483D4 /* ClubAsmActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmActions.swift; sourceTree = "<group>"; };
 		90AC3ACA224A9E3E006483D4 /* ClubAsmLocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAsmLocalView.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				908228B1225FB11400EC81EC /* ClubAsmCreditView.swift */,
+				908228B3226219F700EC81EC /* ClubAsmMacView.swift */,
 			);
 			path = intro;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				901C8304224C019000DE47CE /* ClubAsmLegendsView.swift in Sources */,
 				900AFCDF224D3E1A0056EC0E /* ClubAsmFriendsView.swift in Sources */,
 				90C3C6DE22549C6C000BA98F /* ClubAsmVictoryView.swift in Sources */,
+				908228B4226219F700EC81EC /* ClubAsmMacView.swift in Sources */,
 				903B4B942253C7C100D17724 /* ClubAsmRelaxView.swift in Sources */,
 				90AC3AC9224A8E7F006483D4 /* ClubAsmActions.swift in Sources */,
 			);
