@@ -122,6 +122,7 @@ class ClubAsmViewController: UIViewController {
         
         let frame = self.view.bounds
         
+        self.logoViews.append(ClubAsmLogo1View(frame: frame))
         self.logoViews.append(ClubAsmMacView(frame: frame))
         
         for view in self.logoViews {
@@ -261,18 +262,17 @@ class ClubAsmViewController: UIViewController {
         }
 
         if self.position == ClubAsmPositions.beatNoBasslineStart + 1 {
-            // FIXME
-            self.currentView = self.logoViews[0]
+            self.currentView = self.logoViews[1]
         }
 
         if self.position == ClubAsmPositions.beatNoBasslineStart + 2 {
             // FIXME
-            self.currentView = self.logoViews[0]
+            self.currentView = self.logoViews[1]
         }
 
         if self.position == ClubAsmPositions.beatNoBasslineStart + 3 {
             // FIXME
-            self.currentView = self.logoViews[0]
+            self.currentView = self.logoViews[1]
         }
 
         if self.position >= ClubAsmPositions.beatBasslineStart && self.position < ClubAsmPositions.raveStart {
