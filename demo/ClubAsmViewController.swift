@@ -251,6 +251,14 @@ class ClubAsmViewController: UIViewController {
 
     private func selectCurrentView() {
         let currentView = self.currentView
+
+        /*
+        // for testing a specific view
+        if self.position == 0 {
+            self.logoView.isHidden = false
+            self.currentView = self.logoViews[2]
+        }
+        */
         
         if self.position == ClubAsmPositions.start {
             self.creditView.isHidden = false
