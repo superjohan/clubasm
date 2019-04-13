@@ -249,18 +249,35 @@ class ClubAsmViewController: UIViewController {
     private func selectCurrentView() {
         let currentView = self.currentView
         
-        if self.position == 0 {
+        if self.position == ClubAsmPositions.start {
             self.creditView.isHidden = false
             self.currentView = self.creditView
         }
         
-        if self.position == 4 {
-            // FIXME
-            self.currentView = nil
+        if self.position == ClubAsmPositions.beatNoBasslineStart {
             self.creditView.isHidden = true
+            self.logoView.isHidden = false
+            self.currentView = self.logoViews[0]
         }
-        
+
+        if self.position == ClubAsmPositions.beatNoBasslineStart + 1 {
+            // FIXME
+            self.currentView = self.logoViews[0]
+        }
+
+        if self.position == ClubAsmPositions.beatNoBasslineStart + 2 {
+            // FIXME
+            self.currentView = self.logoViews[0]
+        }
+
+        if self.position == ClubAsmPositions.beatNoBasslineStart + 3 {
+            // FIXME
+            self.currentView = self.logoViews[0]
+        }
+
         if self.position >= ClubAsmPositions.beatBasslineStart && self.position < ClubAsmPositions.raveStart {
+            self.logoView.isHidden = true
+            
             switch self.part1position {
             case 0:
                 self.part1view.isHidden = false
@@ -295,6 +312,7 @@ class ClubAsmViewController: UIViewController {
         }
         
         if self.position == ClubAsmPositions.raveStart {
+            self.part1view.isHidden = true
             self.currentView = self.part2view
         }
         
