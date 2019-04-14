@@ -1,5 +1,5 @@
 //
-//  ClubAsmCompoCirclesView.swift
+//  ClubAsmCompoCirclesTwoView.swift
 //  demo
 //
 //  Created by Johan Halin on 14/04/2019.
@@ -8,16 +8,18 @@
 
 import UIKit
 
-class ClubAsmCompoCirclesView: UIView, ClubAsmActions {
+class ClubAsmCompoCirclesTwoView: UIView, ClubAsmActions {
     private var images = [UIView]()
+    private var maskedImages = [UIView]()
     private var position = 0
+    private let maskOffset: CGFloat = 100
     private var circleViews = [MaskedCircleView]()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         self.backgroundColor = .white
-    
+
         let offset: CGFloat = 300
         let circlesFrame = CGRect(
             x: offset / 2.0,
@@ -32,7 +34,7 @@ class ClubAsmCompoCirclesView: UIView, ClubAsmActions {
             direction: .vertical
         )
         addSubview(circles1)
-
+        
         let circles2 = MaskedCircleView(
             frame: circlesFrame,
             circleSize: circlesFrame.width,
@@ -40,31 +42,67 @@ class ClubAsmCompoCirclesView: UIView, ClubAsmActions {
             direction: .horizontal
         )
         addSubview(circles2)
-
+        
         self.circleViews.append(circles1)
         self.circleViews.append(circles2)
+
+        for i in 1...4 {
+            let index = i < 4 ? i : i + 1
+            let image = UIImage(named: "clubasmcompo_4-\(index)")!
+            let imageView = UIImageView(image: image)
+            imageView.frame = self.bounds
+//            imageView.alpha = 1.0
+            let maskedView = UIView(frame: self.bounds)
+            maskedView.addSubview(imageView)
+            addSubview(maskedView)
+            
+            switch i {
+            case 1:
+                imageView.frame.origin.y += 40
+                imageView.transform = CGAffineTransform.identity.scaledBy(x: 1, y: 4)
+            case 2:
+                imageView.frame.origin.y += 70
+                imageView.transform = CGAffineTransform.identity.scaledBy(x: 1.5, y: 5)
+            case 3:
+                imageView.frame.origin.y += 420
+                imageView.transform = CGAffineTransform.identity.scaledBy(x: 1.5, y: 5)
+            case 4:
+                imageView.frame.origin.y += 420
+                imageView.transform = CGAffineTransform.identity.scaledBy(x: 1.5, y: 5)
+            default:
+                abort()
+            }
+            
+            let circleImage = circle(diameter: 50, color: .black)
+            let circles = UIView(frame: CGRect(origin: .zero, size: CGSize(width: self.bounds.size.width + 100, height: self.bounds.size.height)))
+            circles.backgroundColor = UIColor(patternImage: circleImage)
+            maskedView.mask = circles
+            maskedView.isHidden = true
+
+            self.maskedImages.append(maskedView)
+        }
         
         for i in 1...6 {
             let container = UIView(frame: self.bounds)
             container.isHidden = true
-
+            
             let shadowImage = UIImage(named: "clubasmcompo_4-\(i)")!.withRenderingMode(.alwaysTemplate)
             let shadowImageView = UIImageView(image: shadowImage)
-            shadowImageView.tintColor = .white
+            shadowImageView.tintColor = self.backgroundColor
             shadowImageView.frame = self.bounds
-            shadowImageView.frame.origin.x += 1
-            shadowImageView.frame.origin.y += 1
+            shadowImageView.frame.origin.x += 2
+            shadowImageView.frame.origin.y += 2
             shadowImageView.contentMode = .scaleAspectFit
             container.addSubview(shadowImageView)
-
+            
             let image = UIImage(named: "clubasmcompo_4-\(i)")!
             let imageView = UIImageView(image: image)
             imageView.frame = self.bounds
             imageView.contentMode = .scaleAspectFit
             container.addSubview(imageView)
-
+            
             addSubview(container)
-
+            
             self.images.append(container)
         }
     }
@@ -79,48 +117,88 @@ class ClubAsmCompoCirclesView: UIView, ClubAsmActions {
             view.frame = self.bounds
         }
         
+        for view in self.maskedImages {
+            view.isHidden = true
+            view.mask?.frame.origin.x = 0
+            view.frame.origin.x = 0
+        }
+        
         for view in self.circleViews {
             view.isHidden = true
             view.reset()
         }
+        
+        self.maskedImages[self.position].isHidden = false
+        self.maskedImages[self.position].frame.origin.x -= self.maskOffset / 4.0
+        
+        UIView.animate(withDuration: ClubAsmConstants.tickLength * 4.0, delay: 0, options: [.curveLinear], animations: {
+            self.maskedImages[self.position].mask?.frame.origin.x -= self.maskOffset
+            self.maskedImages[self.position].frame.origin.x += self.maskOffset / 2.0
+        }, completion: nil)
+        
+        self.maskedImages[self.position].alpha = 1
+        
+        UIView.animate(withDuration: ClubAsmConstants.tickLength, delay: 0, options: [.curveEaseOut], animations: {
+            self.maskedImages[self.position].alpha = 0
+        }, completion: nil)
     }
     
     func action2() {
+        self.maskedImages[self.position].alpha = 1
+        
+        UIView.animate(withDuration: ClubAsmConstants.tickLength, delay: 0, options: [.curveEaseOut], animations: {
+            self.maskedImages[self.position].alpha = 0
+        }, completion: nil)
     }
     
     func action3() {
+        self.maskedImages[self.position].alpha = 1
+        
+        UIView.animate(withDuration: ClubAsmConstants.tickLength, delay: 0, options: [.curveEaseOut], animations: {
+            self.maskedImages[self.position].alpha = 0
+        }, completion: nil)
     }
     
     func action4() {
+        self.maskedImages[self.position].alpha = 1
+        
+        UIView.animate(withDuration: ClubAsmConstants.tickLength, delay: 0, options: [.curveEaseOut], animations: {
+            self.maskedImages[self.position].alpha = 0
+        }, completion: nil)
     }
     
     func action5() {
-        let offset: CGFloat = 20
-        
+        for view in self.maskedImages {
+            view.isHidden = true
+        }
+
         for view in self.circleViews {
             view.isHidden = false
             view.animate()
         }
+
+        let offset: CGFloat = 20
+        let duration = (ClubAsmConstants.barLength - (ClubAsmConstants.tickLength * 4.0))
         
         if self.position < 2 {
             let imageView = self.images[self.position]
             imageView.frame.origin.x -= offset / 2.0
             imageView.isHidden = false
             
-            UIView.animate(withDuration: (ClubAsmConstants.barLength - (ClubAsmConstants.tickLength * 4.0)), delay: 0, options: [.curveLinear], animations: {
+            UIView.animate(withDuration: duration, delay: 0, options: [.curveLinear], animations: {
                 imageView.frame.origin.x += offset
             }, completion: nil)
         } else {
             let index = self.position == 2 ? 2 : 4
             let imageView1 = self.images[index]
-            imageView1.frame.origin.x += offset / 2.0
+            imageView1.frame.origin.x += offset / 4.0
             imageView1.isHidden = false
             let imageView2 = self.images[index + 1]
             imageView2.frame.origin.x -= offset / 2.0
             imageView2.isHidden = false
-
-            UIView.animate(withDuration: (ClubAsmConstants.barLength - (ClubAsmConstants.tickLength * 4.0)), delay: 0, options: [.curveLinear], animations: {
-                imageView1.frame.origin.x -= offset
+            
+            UIView.animate(withDuration: duration, delay: 0, options: [.curveLinear], animations: {
+                imageView1.frame.origin.x -= offset / 2.0
                 imageView2.frame.origin.x += offset
             }, completion: nil)
         }
@@ -129,6 +207,29 @@ class ClubAsmCompoCirclesView: UIView, ClubAsmActions {
         if self.position >= 4 {
             self.position = 0
         }
+    }
+    
+    private func circle(diameter: CGFloat, color: UIColor) -> UIImage {
+        let rect = CGRect(origin: .zero, size: CGSize(width: diameter * 2.0, height: diameter * 2.0))
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.fillColor = color.cgColor
+        shapeLayer.lineWidth = 1
+        shapeLayer.path = CGPath(ellipseIn: CGRect(origin: .zero, size: CGSize(width: diameter, height: diameter)), transform: nil)
+
+        let shapeLayer2 = CAShapeLayer()
+        shapeLayer2.fillColor = color.cgColor
+        shapeLayer2.lineWidth = 1
+        shapeLayer2.path = CGPath(ellipseIn: CGRect(origin: CGPoint(x: rect.midX, y: rect.midY), size: CGSize(width: diameter, height: diameter)), transform: nil)
+
+        let renderer = UIGraphicsImageRenderer(size: rect.size)
+        let image = renderer.image { context in
+            shapeLayer2.render(in: context.cgContext)
+            
+            return shapeLayer.render(in: context.cgContext)
+        }
+        
+        return image
     }
     
     private class MaskedCircleView: UIView {
@@ -174,12 +275,12 @@ class ClubAsmCompoCirclesView: UIView, ClubAsmActions {
             self.circleMask.frame.origin.x += circleSize
             self.circles.mask = self.circleMask
         }
-
+        
         private func vertical(circleSize: CGFloat, color: UIColor) {
             var bounds = self.bounds
             bounds.size.height += circleSize
             self.circleBounds = bounds
-
+            
             let circleImage = circle(diameter: circleSize, color: color)
             self.circles.backgroundColor = UIColor(patternImage: circleImage)
             self.circles.frame = bounds
