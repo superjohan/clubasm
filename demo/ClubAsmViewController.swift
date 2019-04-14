@@ -163,7 +163,7 @@ class ClubAsmViewController: UIViewController {
         self.part3views.append(ClubAsmDemoIntroView(frame: frame))
         self.part3views.append(ClubAsmCompoCircleView(frame: frame))
         self.part3views.append(ClubAsmCompoSquaresView(frame: frame))
-        self.part3views.append(ClubAsmCompoCirclesTwoView(frame: frame))
+        self.part3views.append(ClubAsmCompoCirclesView(frame: frame))
         
         for view in self.part3views {
             self.part3view.addSubview(view)

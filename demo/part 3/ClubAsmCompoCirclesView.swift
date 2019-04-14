@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ClubAsmCompoCirclesTwoView: UIView, ClubAsmActions {
+class ClubAsmCompoCirclesView: UIView, ClubAsmActions {
     private var images = [UIView]()
     private var maskedImages = [UIView]()
     private var position = 0
