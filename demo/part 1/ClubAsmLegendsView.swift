@@ -82,7 +82,7 @@ class ClubAsmLegendsView: UIView, ClubAsmActions {
             
             let ratio = CGFloat(index) / CGFloat(self.imageCount - 1)
             
-            UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseOut], animations: {
+            UIView.animate(withDuration: ClubAsmConstants.animationDuration, delay: 0, options: [.curveEaseOut], animations: {
                 view.frame.origin.x = self.distance * ratio
             }, completion: nil)
         }

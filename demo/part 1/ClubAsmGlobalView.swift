@@ -71,7 +71,7 @@ class ClubAsmGlobalView: UIView, ClubAsmActions {
             
             let animation = CABasicAnimation(keyPath: "transform.rotation")
             animation.toValue = NSNumber(floatLiteral: Double(index) * (Double.pi / (Double(self.imageViews.count) / 2)))
-            animation.duration = 1
+            animation.duration = ClubAsmConstants.animationDuration
             animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
             animation.fillMode = .forwards
             animation.isRemovedOnCompletion = false

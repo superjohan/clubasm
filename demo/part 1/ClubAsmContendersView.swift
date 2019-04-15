@@ -91,7 +91,7 @@ class ClubAsmContendersView: UIView, ClubAsmActions {
             view.isHidden = false
             let scale = CGFloat(index + 1) * 0.1
             
-            UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseOut], animations: {
+            UIView.animate(withDuration: ClubAsmConstants.animationDuration, delay: 0, options: [.curveEaseOut], animations: {
                 view.transform = CGAffineTransform.identity.scaledBy(x: scale, y: scale)
             }, completion: nil)
         }

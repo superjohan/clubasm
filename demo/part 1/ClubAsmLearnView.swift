@@ -63,7 +63,7 @@ class ClubAsmLearnView: UIView, ClubAsmActions {
     
     private func animate(index: Int) {
         let view = self.images[index]
-        let duration = index < 4 ? 0.4 : 1
+        let duration = index < 4 ? 0.4 : ClubAsmConstants.animationDuration
         
         UIView.animate(withDuration: duration, delay: 0, options: [.curveEaseOut], animations: {
             view.layer.transform = CATransform3DRotate(view.layer.transform, CGFloat.pi, 0, 1, 0)

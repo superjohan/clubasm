@@ -76,7 +76,7 @@ class ClubAsmLocalView: UIView, ClubAsmActions {
                 let y = -view.bounds.size.height
                 let distance = (self.bounds.size.height - view.bounds.size.height) - y
                 
-                UIView.animate(withDuration: 1.5, delay: 0, options: [.curveEaseOut], animations: {
+                UIView.animate(withDuration: ClubAsmConstants.animationDuration, delay: 0, options: [.curveEaseOut], animations: {
                     view.frame.origin.y = y + (distance * (CGFloat(i) / CGFloat(self.imageViews.count - 1)))
                 }, completion: nil)
             }
