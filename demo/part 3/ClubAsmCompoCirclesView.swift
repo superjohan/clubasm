@@ -27,10 +27,11 @@ class ClubAsmCompoCirclesView: UIView, ClubAsmActions {
             width: self.bounds.size.width - offset,
             height: self.bounds.size.width - offset
         )
+        let color = UIColor(red:1.000, green:0.867, blue:0.010, alpha:0.6)
         let circles1 = MaskedCircleView(
             frame: circlesFrame,
             circleSize: circlesFrame.width,
-            color: UIColor(white: 0.5, alpha: 0.5),
+            color: color,
             direction: .vertical
         )
         addSubview(circles1)
@@ -38,7 +39,7 @@ class ClubAsmCompoCirclesView: UIView, ClubAsmActions {
         let circles2 = MaskedCircleView(
             frame: circlesFrame,
             circleSize: circlesFrame.width,
-            color: UIColor(white: 0.5, alpha: 0.5),
+            color: color,
             direction: .horizontal
         )
         addSubview(circles2)
