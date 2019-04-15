@@ -17,7 +17,7 @@ class ClubAsmRivalsView: UIView, ClubAsmActions {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = .darkGray
+        self.backgroundColor = .black
         
         let width = CGFloat(299) // FIXME: this should come from the image's dimensions
         let height = frame.size.height / 4.0
@@ -135,8 +135,10 @@ class ClubAsmRivalsView: UIView, ClubAsmActions {
         init(centerX: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, startDelay: TimeInterval) {
             self.startDelay = startDelay
             
-            self.leftView.backgroundColor = .white
-            self.rightView.backgroundColor = .black
+            let tintColor = UIColor(red:0.999, green:0.977, blue:0.380, alpha:1.000)
+            
+            self.leftView.backgroundColor = tintColor
+            self.rightView.backgroundColor = UIColor(white: 0.2, alpha: 1)
             
             self.leftView.frame = CGRect(
                 x: centerX - width / 2,
