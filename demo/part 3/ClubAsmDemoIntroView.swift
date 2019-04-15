@@ -14,6 +14,8 @@ class ClubAsmDemoIntroView: UIView, ClubAsmActions {
     var images3 = [UIView]()
     var images4 = [UIView]()
 
+    var segments = [UIView]()
+    
     var counter = 0
     
     override init(frame: CGRect) {
@@ -25,6 +27,21 @@ class ClubAsmDemoIntroView: UIView, ClubAsmActions {
         loadImages(index: 2, views: &self.images2)
         loadImages(index: 3, views: &self.images3)
         loadImages(index: 4, views: &self.images4)
+        
+        for i in 0...4 {
+            let view = UIView(frame:
+                CGRect(
+                    x: CGFloat(i) * (self.bounds.size.width / 4.0),
+                    y: 0,
+                    width: self.bounds.size.width / 4.0,
+                    height: self.bounds.size.height
+                )
+            )
+            view.backgroundColor = .white
+            addSubview(view)
+            
+            self.segments.append(view)
+        }
     }
     
     private func loadImages(index: Int, views: inout [UIView]) {
@@ -49,24 +66,42 @@ class ClubAsmDemoIntroView: UIView, ClubAsmActions {
     }
     
     func action1() {
+        if self.counter > 0 {
+            animateSegment(index: 0)
+        }
+    }
+    
+    func action2() {
+        if self.counter > 0 {
+            animateSegment(index: 1)
+        }
+    }
+    
+    func action3() {
+        if self.counter > 0 {
+            animateSegment(index: 2)
+        }
+    }
+    
+    func action4() {
+        if self.counter > 0 {
+            animateSegment(index: 3)
+        }
+    }
+    
+    func action5() {
+        for view in self.segments {
+            view.backgroundColor = .white
+            view.isHidden = true
+        }
+
         for i in 0...2 {
             self.images1[i].isHidden = true
             self.images2[i].isHidden = true
             self.images3[i].isHidden = true
             self.images4[i].isHidden = true
         }
-    }
-    
-    func action2() {
-    }
-    
-    func action3() {
-    }
-    
-    func action4() {
-    }
-    
-    func action5() {
+
         switch self.counter {
         case 0:
             for view in self.images1 {
@@ -137,5 +172,14 @@ class ClubAsmDemoIntroView: UIView, ClubAsmActions {
             animation2.repeatCount = Float.infinity
             view.layer.add(animation2, forKey: "yposition")
         }
+    }
+    
+    private func animateSegment(index: Int) {
+        let view = self.segments[index]
+        view.isHidden = false
+
+        UIView.animate(withDuration: ClubAsmConstants.tickLength, delay: 0, options: [.curveEaseOut], animations: {
+            view.backgroundColor = .black
+        }, completion: nil)
     }
 }
