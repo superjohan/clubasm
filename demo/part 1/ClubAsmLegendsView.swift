@@ -25,7 +25,7 @@ class ClubAsmLegendsView: UIView, ClubAsmActions {
         
         self.distance = frame.size.width - image.size.width
         
-        self.backgroundColor = .darkGray
+        self.backgroundColor = .black
         
         self.mainImage.frame = CGRect(
             x: 0,
@@ -40,7 +40,11 @@ class ClubAsmLegendsView: UIView, ClubAsmActions {
             let imageView = UIImageView(image: image)
             imageView.frame = self.mainImage.frame
             imageView.isHidden = true
-            imageView.tintColor = UIColor(white: 1.0 - (CGFloat(i) / CGFloat(self.imageCount - 1)), alpha: 1)
+
+            let ratio = CGFloat(i) / CGFloat(self.imageCount - 1)
+            let color = UIColor(white: 0.2 + ((1.0 - ratio) * 0.8), alpha: 1)
+            imageView.tintColor = color
+
             addSubview(imageView)
             sendSubviewToBack(imageView)
             
