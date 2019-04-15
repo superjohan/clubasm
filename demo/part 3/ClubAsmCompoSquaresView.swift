@@ -39,7 +39,7 @@ class ClubAsmCompoSquaresView: UIView, ClubAsmActions {
             width: self.bounds.size.width - (self.border * 2.0),
             height: self.bounds.size.height - (self.border * 2.0)
         )
-        self.box.backgroundColor = .lightGray
+        self.box.backgroundColor = UIColor(red:0.439, green:0.600, blue:1.000, alpha:1.000)
         
         let width: CGFloat = images[0].size.width
         let height: CGFloat = images[0].size.height
