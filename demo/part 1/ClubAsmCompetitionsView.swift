@@ -10,15 +10,24 @@ import UIKit
 
 class ClubAsmCompetitionsView: UIView, ClubAsmActions {
     private let duration = TimeInterval(0.2)
+    private var bg = UIView()
     
     private var images = [UIImageView]()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let backgroundColor = UIColor.darkGray
+        let backgroundColor = UIColor.black
         
         self.backgroundColor = backgroundColor
+        
+        let red = UIColor(red:0.900, green:0.255, blue:0.170, alpha:1.000)
+        let dark = UIColor(red:0.043, green:0.110, blue:0.170, alpha:1.000)
+
+        self.bg.frame = CGRect(x: self.bounds.size.width / 2.0, y: 0, width: 0, height: self.bounds.size.height)
+        self.bg.backgroundColor = red
+        self.bg.layer.zPosition = -100
+        addSubview(self.bg)
         
         guard let image = UIImage(named: "clubasmcompetitions")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate) else { return }
         
@@ -36,15 +45,15 @@ class ClubAsmCompetitionsView: UIView, ClubAsmActions {
             
             switch i {
             case 0:
-                imageView.tintColor = .black
+                imageView.tintColor = dark
             case 1:
-                imageView.tintColor = backgroundColor
+                imageView.tintColor = red
                 imageView.backgroundColor = .white
             case 2:
                 imageView.tintColor = .white
             case 3:
-                imageView.tintColor = .gray
-                imageView.backgroundColor = .black
+                imageView.tintColor = red
+                imageView.backgroundColor = dark
             default:
                 abort()
             }
@@ -56,6 +65,8 @@ class ClubAsmCompetitionsView: UIView, ClubAsmActions {
     }
 
     func action1() {
+        self.bg.frame = CGRect(x: self.bounds.size.width / 2.0, y: 0, width: 0, height: self.bounds.size.height)
+
         for (index, view) in self.images.enumerated() {
             view.frame.origin.x = index % 2 == 0 ? -self.images[0].bounds.size.width : self.bounds.size.width
             view.layer.transform = CATransform3DRotate(view.layer.transform, CGFloat.pi, 1, 0, 0)
@@ -91,5 +102,9 @@ class ClubAsmCompetitionsView: UIView, ClubAsmActions {
     }
     
     func action5() {
+        UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseOut], animations: {
+            self.bg.bounds.size.width = self.bounds.size.width
+            self.bg.frame.origin.x = 0
+        }, completion: nil)
     }
 }
