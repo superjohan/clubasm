@@ -15,20 +15,26 @@ class ClubAsmGamingView: UIView, ClubAsmActions {
     
     private let container = UIView()
     private let maskAnimationView = UIView()
+    private let bg = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = .darkGray
-    
+        self.backgroundColor = .black
+        self.bg.frame = self.bounds
+        self.bg.backgroundColor = UIColor(red:0.247, green:0.247, blue:0.247, alpha:1.000)
+        self.bg.isHidden = true
+        addSubview(self.bg)
+
         self.container.frame = self.bounds
         addSubview(self.container)
 
         for i in 1...5 {
-            let image = UIImage(named: "clubasmgaming\(i)")
+            let image = UIImage(named: "clubasmgaming\(i)")!.withRenderingMode(.alwaysTemplate)
             let imageView = UIImageView(image: image)
             imageView.frame = self.bounds
             imageView.isHidden = true
+            imageView.tintColor = UIColor(red:1.000, green:0.288, blue:0.000, alpha:1.000)
             self.container.addSubview(imageView)
             
             self.images.append(imageView)
@@ -66,6 +72,8 @@ class ClubAsmGamingView: UIView, ClubAsmActions {
             view.layer.removeAllAnimations()
         }
 
+        self.bg.isHidden = true
+        
         animate(index: 0)
     }
     
@@ -86,6 +94,8 @@ class ClubAsmGamingView: UIView, ClubAsmActions {
             view.alpha = 1
             view.isHidden = false
         }
+
+        self.bg.isHidden = false
 
         UIView.animate(withDuration: 2, delay: 0, options: [.curveLinear], animations: {
             for (index, view) in self.maskAnimationView.subviews.shuffled().enumerated() {
