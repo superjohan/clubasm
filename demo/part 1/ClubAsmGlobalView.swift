@@ -20,7 +20,7 @@ class ClubAsmGlobalView: UIView, ClubAsmActions {
         self.backgroundColor = .white
         
         let diameter = self.bounds.size.height + 50
-        self.circle = ClubAsmUtils.circleImageView(diameter: diameter, color: UIColor(white: 0.9, alpha: 1.0))
+        self.circle = ClubAsmUtils.circleImageView(diameter: diameter, color: UIColor(red: 0, green: 1, blue: 0, alpha: 0.2))
         self.circle?.frame.origin = CGPoint(
             x: (self.bounds.size.width / 2.0) - (diameter / 2.0),
             y: (self.bounds.size.height / 2.0) - (diameter / 2.0)
