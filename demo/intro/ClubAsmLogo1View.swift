@@ -131,7 +131,7 @@ class ClubAsmLogo1View: UIView, ClubAsmActions {
             
             view.layer.transform = CATransform3DRotate(view.layer.transform, CGFloat.pi / 2.0, 1, 0, 0)
             
-            UIView.animate(withDuration: 1, delay: Double(index) * 0.1, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.1, options: [.curveEaseOut], animations: {
+            UIView.animate(withDuration: ClubAsmConstants.animationDuration, delay: Double(index) * 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.2, options: [.curveEaseOut], animations: {
                 view.layer.transform = CATransform3DIdentity
             }, completion: nil)
         }
