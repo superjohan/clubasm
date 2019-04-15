@@ -107,6 +107,21 @@ class ClubAsmViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        let referenceSize = CGSize(width: 812, height: 375)
+        let referenceRatio = referenceSize.width / referenceSize.height
+        let screenSize = self.view.bounds.size
+        let screenRatio = screenSize.width / screenSize.height
+        self.view.bounds.size = referenceSize
+        self.view.clipsToBounds = true
+        
+        if screenRatio <= referenceRatio {
+            let ratio = screenSize.width / referenceSize.width
+            self.view.transform = CGAffineTransform.identity.scaledBy(x: ratio, y: ratio)
+        } else if screenRatio > referenceRatio {
+            let ratio = screenSize.height / referenceSize.height
+            self.view.transform = CGAffineTransform.identity.scaledBy(x: ratio, y: ratio)
+        }
+        
         self.qtFoolingBgView.frame = CGRect(
             x: (self.view.bounds.size.width / 2) - 1,
             y: (self.view.bounds.size.height / 2) - 1,
