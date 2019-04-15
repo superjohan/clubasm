@@ -31,7 +31,7 @@ class ClubAsmDefeatView: UIView, ClubAsmActions {
         
         for i in 0..<4 {
             let view = UIView(frame: self.imageView.frame)
-            view.backgroundColor = UIColor(white: 0.5, alpha: 0.5)
+            view.backgroundColor = UIColor(red:0.455, green:0.736, blue:1.000, alpha:0.5)
             view.layer.transform.m34 = -0.002
             view.layer.transform = CATransform3DRotate(view.layer.transform, CGFloat.pi * (CGFloat(i) * 0.25), 0, 1, 0)
             view.layer.zPosition = -image.size.width
@@ -91,6 +91,10 @@ class ClubAsmDefeatView: UIView, ClubAsmActions {
             animation2.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
             animation2.repeatCount = Float.infinity
             view.layer.add(animation2, forKey: "yrotation")
+            
+            UIView.animate(withDuration: ClubAsmConstants.barLength * 2.0, delay: 0, options: [.curveEaseOut], animations: {
+                view.alpha = 0
+            }, completion: nil)
         }
         
         self.imageView.isHidden = false
