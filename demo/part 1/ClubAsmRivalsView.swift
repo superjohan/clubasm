@@ -9,7 +9,7 @@
 import UIKit
 
 class ClubAsmRivalsView: UIView, ClubAsmActions {
-    private let duration = 1.5
+    private let duration = ClubAsmConstants.barLength - (ClubAsmConstants.tickLength * 4.0)
     
     private var shades = [ShadeViewHolder]()
     private var isAnimating = false
@@ -47,6 +47,7 @@ class ClubAsmRivalsView: UIView, ClubAsmActions {
     
     func action1() {
         if self.isAnimating {
+            self.shades[0].setViewVisibility(isHidden: true)
             return
         }
         
@@ -56,6 +57,8 @@ class ClubAsmRivalsView: UIView, ClubAsmActions {
     
     func action2() {
         if self.isAnimating {
+            self.shades[0].setViewVisibility(isHidden: false)
+            self.shades[1].setViewVisibility(isHidden: true)
             return
         }
         
@@ -65,6 +68,8 @@ class ClubAsmRivalsView: UIView, ClubAsmActions {
     
     func action3() {
         if self.isAnimating {
+            self.shades[1].setViewVisibility(isHidden: false)
+            self.shades[2].setViewVisibility(isHidden: true)
             return
         }
         
@@ -74,6 +79,8 @@ class ClubAsmRivalsView: UIView, ClubAsmActions {
     
     func action4() {
         if self.isAnimating {
+            self.shades[2].setViewVisibility(isHidden: false)
+            self.shades[3].setViewVisibility(isHidden: true)
             return
         }
         
@@ -83,6 +90,7 @@ class ClubAsmRivalsView: UIView, ClubAsmActions {
     
     func action5() {
         if self.isAnimating {
+            self.shades[3].setViewVisibility(isHidden: false)
             return
         }
         
