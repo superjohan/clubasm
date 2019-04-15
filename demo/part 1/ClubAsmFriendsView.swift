@@ -13,7 +13,6 @@ class ClubAsmFriendsView: UIView, ClubAsmActions {
 
     private var interference1: InterferenceView?
     private var interference2: InterferenceView?
-    private var circles: InterferenceView?
 
     private var animating = false
     
@@ -23,8 +22,8 @@ class ClubAsmFriendsView: UIView, ClubAsmActions {
         self.friendsView = UIImageView(image: image)
         
         super.init(frame: frame)
-
-        self.backgroundColor = .darkGray
+        
+        self.backgroundColor = .black
         
         let length = self.bounds.size.width * 2
 
@@ -50,12 +49,6 @@ class ClubAsmFriendsView: UIView, ClubAsmActions {
         self.interference2?.circleCount = 14
         self.interference2?.setNeedsDisplay()
 
-        self.circles = InterferenceView(frame: self.interference1!.frame)
-        addSubview(self.circles!)
-
-        self.circles?.circleCount = 14
-        self.circles?.setNeedsDisplay()
-
         self.friendsView.frame = CGRect(
             x: (self.bounds.size.width / 2.0) - (image.size.width / 2.0),
             y: (self.bounds.size.height / 2.0) - (image.size.height / 2.0),
@@ -76,32 +69,18 @@ class ClubAsmFriendsView: UIView, ClubAsmActions {
 
         self.interference1?.isHidden = true
         self.interference2?.isHidden = true
-        
-        self.circles?.transform = CGAffineTransform.identity.scaledBy(x: 0.2, y: 0.2)
     }
     
     func action2() {
         self.friendsView.transform = CGAffineTransform.identity.scaledBy(x: 0.4, y: 0.4)
-
-        if self.animating { return }
-        
-        self.circles?.transform = CGAffineTransform.identity.scaledBy(x: 0.4, y: 0.4)
     }
     
     func action3() {
         self.friendsView.transform = CGAffineTransform.identity.scaledBy(x: 0.6, y: 0.6)
-
-        if self.animating { return }
-        
-        self.circles?.transform = CGAffineTransform.identity.scaledBy(x: 0.6, y: 0.6)
     }
     
     func action4() {
         self.friendsView.transform = CGAffineTransform.identity.scaledBy(x: 0.8, y: 0.8)
-
-        if self.animating { return }
-        
-        self.circles?.transform = CGAffineTransform.identity.scaledBy(x: 0.8, y: 0.8)
     }
     
     func action5() {
@@ -115,9 +94,10 @@ class ClubAsmFriendsView: UIView, ClubAsmActions {
 
         self.animating = true
 
+        self.backgroundColor = UIColor(red:0.507, green:0.390, blue:1.000, alpha:1.000)
+
         self.interference1?.isHidden = false
         self.interference2?.isHidden = false
-        self.circles?.isHidden = true
 
         let distance = Double(self.bounds.size.height / 4.0)
 
@@ -181,7 +161,7 @@ class ClubAsmFriendsView: UIView, ClubAsmActions {
             guard let context = UIGraphicsGetCurrentContext() else { return }
 
             context.setLineWidth(self.thickness)
-            context.setStrokeColor(UIColor.gray.cgColor)
+            context.setStrokeColor(UIColor.green.cgColor)
             
             let count: Int
             if self.circleCount >= 0 {
