@@ -12,11 +12,21 @@ class ClubAsmGlobalView: UIView, ClubAsmActions {
     private let imageCount = 8
     
     private var imageViews = [UIImageView]()
+    private var circle: UIImageView?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.backgroundColor = .white
+        
+        let diameter = self.bounds.size.height + 50
+        self.circle = ClubAsmUtils.circleImageView(diameter: diameter, color: UIColor(white: 0.9, alpha: 1.0))
+        self.circle?.frame.origin = CGPoint(
+            x: (self.bounds.size.width / 2.0) - (diameter / 2.0),
+            y: (self.bounds.size.height / 2.0) - (diameter / 2.0)
+        )
+        self.circle?.transform = CGAffineTransform.identity.scaledBy(x: 0, y: 0)
+        addSubview(self.circle!)
         
         guard let image = UIImage(named: "clubasmglobal") else { return }
         
@@ -77,6 +87,10 @@ class ClubAsmGlobalView: UIView, ClubAsmActions {
             animation.isRemovedOnCompletion = false
             view.layer.add(animation, forKey: "rotation")
         }
+        
+        UIView.animate(withDuration: ClubAsmConstants.animationDuration, delay: 0, options: [.curveEaseOut], animations: {
+            self.circle?.transform = CGAffineTransform.identity
+        }, completion: nil)
     }
     
     private func resetAllViews() {
@@ -84,5 +98,7 @@ class ClubAsmGlobalView: UIView, ClubAsmActions {
             view.isHidden = true
             view.layer.removeAllAnimations()
         }
+        
+        self.circle?.transform = CGAffineTransform.identity.scaledBy(x: 0, y: 0)
     }
 }
