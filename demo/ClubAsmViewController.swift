@@ -12,7 +12,7 @@ import SceneKit
 import Foundation
 
 class ClubAsmViewController: UIViewController {
-    let autostart = true
+    let autostart = false
     
     let audioPlayer: AVAudioPlayer
     let startButton: UIButton
