@@ -119,10 +119,10 @@ class ClubAsmRivalsView: UIView, ClubAsmActions {
     }
 
     private class ShadeViewHolder {
-        let leftView = UIImageView(image: UIImage(named: "clubasmrivalsblack"))
+        let leftView = UIImageView(image: UIImage(named: "clubasmrivalswhite"))
         private let leftShadeLeft = UIImageView(image: UIImage(named: "clubasmshadeleft"))
         private let leftShadeRight = UIImageView(image: UIImage(named: "clubasmshaderight"))
-        let rightView = UIImageView(image: UIImage(named: "clubasmrivalswhite"))
+        let rightView = UIImageView(image: UIImage(named: "clubasmrivalsblack"))
         private let rightShadeLeft = UIImageView(image: UIImage(named: "clubasmshadeleft"))
         private let rightShadeRight = UIImageView(image: UIImage(named: "clubasmshaderight"))
         
@@ -137,9 +137,9 @@ class ClubAsmRivalsView: UIView, ClubAsmActions {
             
             let tintColor = UIColor(red:0.999, green:0.977, blue:0.380, alpha:1.000)
             
-            self.leftView.backgroundColor = tintColor
-            self.rightView.backgroundColor = UIColor(white: 0.2, alpha: 1)
-            
+            self.leftView.backgroundColor = UIColor(white: 0.2, alpha: 1)
+            self.rightView.backgroundColor = tintColor
+
             self.leftView.frame = CGRect(
                 x: centerX - width / 2,
                 y: y,
