@@ -94,11 +94,18 @@ class ClubAsmFriendsView: UIView, ClubAsmActions {
 
         self.animating = true
 
-        self.backgroundColor = UIColor(red:0.507, green:0.390, blue:1.000, alpha:1.000)
-
         self.interference1?.isHidden = false
         self.interference2?.isHidden = false
 
+        self.interference1?.alpha = 0
+        self.interference2?.alpha = 0
+        
+        UIView.animate(withDuration: ClubAsmConstants.tickLength * 4, delay: 0, options: [.curveEaseOut], animations: {
+            self.interference1?.alpha = 1
+            self.interference2?.alpha = 1
+            self.backgroundColor = UIColor(red:0.507, green:0.390, blue:1.000, alpha:1.000)
+        }, completion: nil)
+        
         let distance = Double(self.bounds.size.height / 4.0)
 
         let animation = CABasicAnimation(keyPath: "position.x")
