@@ -10,34 +10,31 @@ import UIKit
 
 class ClubAsmRivalsView: UIView, ClubAsmActions {
     private let duration = ClubAsmConstants.barLength - (ClubAsmConstants.tickLength * 4.0)
+    private let width = CGFloat(299)
     
     private var shades = [ShadeViewHolder]()
     private var isAnimating = false
+    private var stepTwo = false
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.backgroundColor = .black
         
-        let width = CGFloat(299) // FIXME: this should come from the image's dimensions
         let height = frame.size.height / 4.0
-        let offset = width / 4.0
         
         for i in 0..<4 {
-            let centerOffset = -(width / 2.5) + (CGFloat(i) * offset)
-            
             let holder = ShadeViewHolder(
-                centerX: (frame.size.width / 2.0) + centerOffset,
+                centerX: frame.size.width / 2.0,
                 y: height * (CGFloat(i)),
-                width: width,
+                width: self.width,
                 height: height,
                 startDelay: TimeInterval(i) * (self.duration / 4.0)
             )
             
             self.shades.append(holder)
             
-            addSubview(holder.leftView)
-            addSubview(holder.rightView)
+            addSubview(holder.container)
         }
     }
     
@@ -91,12 +88,35 @@ class ClubAsmRivalsView: UIView, ClubAsmActions {
     func action5() {
         if self.isAnimating {
             self.shades[3].setViewVisibility(isHidden: false)
-            return
         }
         
-        animate()
+        if !self.isAnimating {
+            animate()
 
-        self.isAnimating = true
+            self.isAnimating = true
+        }
+
+        let offset = self.width / 3.0
+
+        if !self.stepTwo {
+            UIView.animate(withDuration: ClubAsmConstants.barLength / 2.0, delay: 0, options: [.curveEaseOut], animations: {
+                for i in 0...3 {
+                    let centerOffset = (CGFloat(i) * offset) - self.width
+                    self.shades[i].container.frame.origin.x = (self.bounds.midX) + centerOffset
+                }
+            }, completion: nil)
+
+            self.stepTwo = true
+        } else {
+            UIView.animate(withDuration: ClubAsmConstants.barLength / 2.0, delay: 0, options: [.curveEaseOut], animations: {
+                for i in 0...3 {
+                    let centerOffset = (CGFloat(3 - i) * offset) - self.width
+                    self.shades[i].container.frame.origin.x = (self.bounds.midX) + centerOffset
+                }
+            }, completion: nil)
+
+            self.stepTwo = false
+        }
     }
     
     private func showView(index: Int) {
@@ -119,10 +139,11 @@ class ClubAsmRivalsView: UIView, ClubAsmActions {
     }
 
     private class ShadeViewHolder {
-        let leftView = UIImageView(image: UIImage(named: "clubasmrivalswhite"))
+        let container = UIView()
+        private let leftView = UIImageView(image: UIImage(named: "clubasmrivalswhite"))
         private let leftShadeLeft = UIImageView(image: UIImage(named: "clubasmshadeleft"))
         private let leftShadeRight = UIImageView(image: UIImage(named: "clubasmshaderight"))
-        let rightView = UIImageView(image: UIImage(named: "clubasmrivalsblack"))
+        private let rightView = UIImageView(image: UIImage(named: "clubasmrivalsblack"))
         private let rightShadeLeft = UIImageView(image: UIImage(named: "clubasmshadeleft"))
         private let rightShadeRight = UIImageView(image: UIImage(named: "clubasmshaderight"))
         
@@ -140,18 +161,15 @@ class ClubAsmRivalsView: UIView, ClubAsmActions {
             self.leftView.backgroundColor = UIColor(white: 0.2, alpha: 1)
             self.rightView.backgroundColor = tintColor
 
-            self.leftView.frame = CGRect(
+            self.container.frame = CGRect(
                 x: centerX - width / 2,
                 y: y,
                 width: width,
                 height: height
             )
-            self.rightView.frame = CGRect(
-                x: centerX + width / 2,
-                y: y,
-                width: 0,
-                height: height
-            )
+            
+            self.leftView.frame = CGRect(x: 0, y: 0, width: width, height: height)
+            self.rightView.frame = CGRect(x: width, y: 0, width: 0, height: height)
             
             self.x = self.leftView.frame.origin.x
             self.width = width
@@ -177,6 +195,9 @@ class ClubAsmRivalsView: UIView, ClubAsmActions {
             self.leftShadeRight.alpha = 0
             self.rightShadeLeft.alpha = 0
             self.rightShadeRight.alpha = 1
+            
+            self.container.addSubview(self.leftView)
+            self.container.addSubview(self.rightView)
         }
         
         func animateRow(duration: TimeInterval) {
