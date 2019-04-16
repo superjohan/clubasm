@@ -36,13 +36,22 @@ class ClubAsmLegendsView: UIView, ClubAsmActions {
         self.mainImage.tintColor = .white
         addSubview(self.mainImage)
         
+        let red: CGFloat = 0.621
+        let green: CGFloat = 0
+        let blue: CGFloat = 0.003
+
         for i in 0..<self.imageCount {
             let imageView = UIImageView(image: image)
             imageView.frame = self.mainImage.frame
             imageView.isHidden = true
 
             let ratio = CGFloat(i) / CGFloat(self.imageCount - 1)
-            let color = UIColor(white: 0.2 + ((1.0 - ratio) * 0.8), alpha: 1)
+            let color = UIColor(
+                red: 1.0 - ((1.0 - red) * ratio),
+                green: 1.0 - ((1.0 - green) * ratio),
+                blue: 1.0 - ((1.0 - blue) * ratio),
+                alpha: 1
+            )
             imageView.tintColor = color
 
             addSubview(imageView)
