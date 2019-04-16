@@ -11,6 +11,7 @@ import UIKit
 class ClubAsmRivalsView: UIView, ClubAsmActions {
     private let duration = ClubAsmConstants.barLength - (ClubAsmConstants.tickLength * 4.0)
     private let width = CGFloat(299)
+    private let bg = UIView()
     
     private var shades = [ShadeViewHolder]()
     private var isAnimating = false
@@ -20,6 +21,25 @@ class ClubAsmRivalsView: UIView, ClubAsmActions {
         super.init(frame: frame)
         
         self.backgroundColor = .black
+        
+        let bgLength = self.bounds.size.width * 2.0
+        self.bg.frame = CGRect(
+            x: (self.bounds.size.width / 2.0) - (bgLength / 2.0),
+            y: (self.bounds.size.height / 2.0) - (bgLength / 2.0),
+            width: bgLength,
+            height: bgLength
+        )
+        self.bg.isHidden = true
+        self.bg.alpha = 0
+        addSubview(self.bg)
+
+        let bgLeft = UIView(frame: CGRect(x: 0, y: 0, width: bgLength / 2.0, height: bgLength))
+        bgLeft.backgroundColor = UIColor(red:0.325, green:0.326, blue:0.325, alpha:1.000)
+        self.bg.addSubview(bgLeft)
+        
+        let bgRight = UIView(frame: CGRect(x: bgLength / 2.0, y: 0, width: bgLength / 2.0, height: bgLength))
+        bgRight.backgroundColor = .black
+        self.bg.addSubview(bgRight)
         
         let height = frame.size.height / 4.0
         
@@ -86,6 +106,8 @@ class ClubAsmRivalsView: UIView, ClubAsmActions {
     }
     
     func action5() {
+        self.bg.isHidden = false
+        
         if self.isAnimating {
             self.shades[3].setViewVisibility(isHidden: false)
         }
@@ -104,6 +126,9 @@ class ClubAsmRivalsView: UIView, ClubAsmActions {
                     let centerOffset = (CGFloat(i) * offset) - self.width
                     self.shades[i].container.frame.origin.x = (self.bounds.midX) + centerOffset
                 }
+
+                self.bg.alpha = 1
+                self.bg.transform = self.bg.transform.rotated(by: CGFloat.pi)
             }, completion: nil)
 
             self.stepTwo = true
@@ -113,6 +138,8 @@ class ClubAsmRivalsView: UIView, ClubAsmActions {
                     let centerOffset = (CGFloat(3 - i) * offset) - self.width
                     self.shades[i].container.frame.origin.x = (self.bounds.midX) + centerOffset
                 }
+                
+                self.bg.transform = self.bg.transform.rotated(by: CGFloat.pi)
             }, completion: nil)
 
             self.stepTwo = false
