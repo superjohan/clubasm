@@ -14,6 +14,7 @@ class ClubAsmContendersView: UIView, ClubAsmActions {
     
     private var boxParts = [UIImageView]()
     private var outlines = [UIImageView]()
+    private var boxes = [UIImageView]()
     
     override init(frame: CGRect) {
         guard let filledImage = UIImage(named: "clubasmcontendersfilled") else { abort() }
@@ -41,6 +42,15 @@ class ClubAsmContendersView: UIView, ClubAsmActions {
             self.boxParts.append(imageView)
         }
 
+        for _ in 0..<self.imageCount {
+            let imageView = UIImageView(image: UIImage(named: "clubasmcontendersbox4"))
+            imageView.frame = self.contendersFilled.frame
+            imageView.isHidden = true
+            addSubview(imageView)
+            
+            self.boxes.append(imageView)
+        }
+        
         guard let outlineImage = UIImage(named: "clubasmcontendersoutline") else { return }
 
         for _ in 0..<self.imageCount {
@@ -67,6 +77,10 @@ class ClubAsmContendersView: UIView, ClubAsmActions {
             view.transform = CGAffineTransform.identity
         }
         
+        for view in self.boxes {
+            view.isHidden = true
+            view.transform = CGAffineTransform.identity
+        }
         self.contendersFilled.isHidden = false
         
         self.boxParts[0].isHidden = false
@@ -89,10 +103,15 @@ class ClubAsmContendersView: UIView, ClubAsmActions {
         
         for (index, view) in self.outlines.enumerated() {
             view.isHidden = false
+            self.boxes[index].isHidden = false
+
             let scale = CGFloat(index + 1) * 0.1
-            
+            let boxScale = 4.0 - (scale * 3.0)
+
             UIView.animate(withDuration: ClubAsmConstants.animationDuration, delay: 0, options: [.curveEaseOut], animations: {
                 view.transform = CGAffineTransform.identity.scaledBy(x: scale, y: scale)
+
+                self.boxes[index].transform = CGAffineTransform.identity.scaledBy(x: boxScale, y: boxScale)
             }, completion: nil)
         }
     }
