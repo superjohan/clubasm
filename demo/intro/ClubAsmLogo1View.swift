@@ -64,13 +64,13 @@ class ClubAsmLogo1View: UIView, ClubAsmActions {
             
             switch index {
             case 0:
-                view.layer.shadowColor = UIColor.black.cgColor
+                view.layer.shadowColor = UIColor(red:0.286, green:0.008, blue:0.518, alpha:1.000).cgColor
             case 1:
-                view.layer.shadowColor = UIColor.black.cgColor
+                view.layer.shadowColor = UIColor(red:0.580, green:0.071, blue:0.749, alpha:1.000).cgColor
             case 2:
-                view.layer.shadowColor = UIColor.black.cgColor
+                view.layer.shadowColor = UIColor(red:0.804, green:0.165, blue:0.741, alpha:1.000).cgColor
             case 3:
-                view.layer.shadowColor = UIColor.black.cgColor
+                view.layer.shadowColor = UIColor(red:0.937, green:0.345, blue:0.780, alpha:1.000).cgColor
             default:
                 abort()
             }
@@ -92,7 +92,7 @@ class ClubAsmLogo1View: UIView, ClubAsmActions {
             view.layer.shadowOffset = CGSize(width: 0, height: 0)
             view.layer.shadowRadius = 10.0
             view.layer.shadowOpacity = 0.5
-            view.layer.shadowColor = UIColor.black.cgColor
+            view.layer.shadowColor = UIColor(red:0.957, green:0.576, blue:0.855, alpha:1.000).cgColor
             addSubview(view)
         }
     }
