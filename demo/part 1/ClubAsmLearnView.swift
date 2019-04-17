@@ -11,11 +11,28 @@ import UIKit
 class ClubAsmLearnView: UIView, ClubAsmActions {
     private var images = [UIImageView]()
 
+    private let bg = UIView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.backgroundColor = .black
         
+        self.bg.frame = self.bounds
+        self.bg.clipsToBounds = true
+        
+        let bgLeft = UIView(frame: CGRect(x: 0, y: 0, width: self.bg.bounds.size.width / 2.0, height: self.bg.bounds.size.height))
+        bgLeft.backgroundColor = UIColor(red:0.121, green:0.125, blue:0.130, alpha:1.000)
+        self.bg.addSubview(bgLeft)
+        
+        let bgRight = UIView(frame: CGRect(x: self.bg.bounds.size.width / 2.0, y: 0, width: self.bg.bounds.size.width / 2.0, height: self.bg.bounds.size.height))
+        bgRight.backgroundColor = UIColor(red:0.292, green:0.220, blue:0.695, alpha:1.000)
+        self.bg.addSubview(bgRight)
+
+        self.bg.layer.zPosition = -500
+        
+        addSubview(self.bg)
+
         for _ in 0..<5 {
             guard let image = UIImage(named: "clubasmlearn") else { return }
             let imageView = UIImageView(image: image)
@@ -26,6 +43,7 @@ class ClubAsmLearnView: UIView, ClubAsmActions {
                 width: image.size.width,
                 height: image.size.height
             )
+            imageView.layer.zPosition = 500
             addSubview(imageView)
             
             self.images.append(imageView)
@@ -41,6 +59,10 @@ class ClubAsmLearnView: UIView, ClubAsmActions {
             view.layer.transform = CATransform3DIdentity
             view.layer.transform.m34 = -0.002
         }
+        
+        self.bg.layer.transform = CATransform3DIdentity
+        self.bg.layer.transform.m34 = -0.002
+        self.bg.layer.transform = CATransform3DRotate(self.bg.layer.transform, CGFloat.pi / 2.0, 0, 1, 0)
         
         animate(index: 0)
     }
@@ -59,6 +81,10 @@ class ClubAsmLearnView: UIView, ClubAsmActions {
     
     func action5() {
         animate(index: 4)
+
+        UIView.animate(withDuration: ClubAsmConstants.animationDuration, delay: 0, options: [.curveEaseOut], animations: {
+            self.bg.layer.transform = CATransform3DIdentity
+        }, completion: nil)
     }
     
     private func animate(index: Int) {
