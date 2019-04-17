@@ -46,13 +46,14 @@ class ClubAsmLogo1View: UIView, ClubAsmActions {
         
         self.backgroundColor = .white
         
-        let x = (self.bounds.size.width / 2.0) - (image1.size.width / 2.0)
-        let height = image1.size.height + image5.size.height
+        let offset: CGFloat = 10.0
+        let x1 = (self.bounds.size.width / 2.0) - (image1.size.width / 2.0) - 50
+        let height = image1.size.height + image5.size.height + offset
         let upperY = (self.bounds.size.height / 2.0) - (height / 2.0)
         
         for (index, view) in self.upperViews.enumerated() {
             view.frame = CGRect(
-                x: x,
+                x: x1,
                 y: upperY,
                 width: image1.size.width,
                 height: image1.size.height
@@ -77,12 +78,13 @@ class ClubAsmLogo1View: UIView, ClubAsmActions {
             addSubview(view)
         }
         
-        let lowerY = upperY + image1.size.height
-        
+        let lowerY = upperY + image1.size.height + offset
+        let x2 = (self.bounds.size.width / 2.0) - (image5.size.width / 2.0)
+
         for view in self.lowerViews {
             view.layer.anchorPoint.y = 0
             view.frame = CGRect(
-                x: x,
+                x: x2,
                 y: lowerY,
                 width: image5.size.width,
                 height: image5.size.height
@@ -131,7 +133,7 @@ class ClubAsmLogo1View: UIView, ClubAsmActions {
             
             view.layer.transform = CATransform3DRotate(view.layer.transform, CGFloat.pi / 2.0, 1, 0, 0)
             
-            UIView.animate(withDuration: ClubAsmConstants.animationDuration, delay: Double(index) * 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.2, options: [.curveEaseOut], animations: {
+            UIView.animate(withDuration: ClubAsmConstants.animationDuration * 1.5, delay: Double(index) * 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.2, options: [.curveEaseInOut], animations: {
                 view.layer.transform = CATransform3DIdentity
             }, completion: nil)
         }
