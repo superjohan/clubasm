@@ -59,6 +59,15 @@ class ClubAsmCreditView: UIView, ClubAsmActions {
     
     func action5() {
         showNextImage()
+
+        if self.position > 15 {
+            UIView.animate(withDuration: ClubAsmConstants.animationDuration, delay: 0, options: [.curveEaseOut], animations: {
+                for view in self.images {
+                    view.frame.origin.y += 20
+                    view.transform = CGAffineTransform.identity.rotated(by: 0.05)
+                }
+            }, completion: nil)
+        }
         
         let delay = ClubAsmConstants.barLength - (ClubAsmConstants.tickLength * 8)
         perform(#selector(hideViews), with: nil, afterDelay: delay)
@@ -67,10 +76,16 @@ class ClubAsmCreditView: UIView, ClubAsmActions {
     @objc private func hideViews() {
         for view in self.images {
             view.isHidden = true
+            view.frame = self.bounds
+            view.transform = CGAffineTransform.identity
         }
     }
     
     private func showNextImage() {
+        if self.position >= self.images.count {
+            self.position = 0
+        }
+
         self.images[self.position].isHidden = false
         self.position += 1
     }
