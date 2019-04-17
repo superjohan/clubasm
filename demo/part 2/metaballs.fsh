@@ -16,8 +16,8 @@ float time = iTime;
 // initial background color
 vec4 color = vec4(0.0f,0.0f,0.0f,0.0f);
 // palette
-vec3 color1 = vec3(1.0f, 1.0f, 0.0f);
-vec3 color2 = vec3(0.0f, 0.0f, 1.0f);
+vec3 color1 = vec3(1.0f, 0.984f, 0.835f);
+vec3 color2 = vec3(0.698f, 0.039f, 0.173f);
 
 float metaStickyness = 0.4f;
 
