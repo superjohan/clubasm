@@ -17,8 +17,16 @@ class ClubAsmCompoSquaresView: UIView, ClubAsmActions {
     private let imageView3 = UIImageView()
     private let imageView4 = UIImageView()
     private let images: [UIImage]
+    private var segments = [UIView]()
     
     private var position = 0
+    
+    private let colors = [
+        UIColor(red:0.482, green:0.322, blue:0.831, alpha:1.000),
+        UIColor(red:0.980, green:0.416, blue:0.180, alpha:1.000),
+        UIColor(red:0.973, green:0.200, blue:0.631, alpha:1.000),
+        UIColor(red:0.200, green:0.710, blue:0.294, alpha:1.000)
+    ]
     
     override init(frame: CGRect) {
         var images = [UIImage]()
@@ -39,7 +47,22 @@ class ClubAsmCompoSquaresView: UIView, ClubAsmActions {
             width: self.bounds.size.width - (self.border * 2.0),
             height: self.bounds.size.height - (self.border * 2.0)
         )
-        self.box.backgroundColor = UIColor(red:0.439, green:0.600, blue:1.000, alpha:1.000)
+        self.box.backgroundColor = self.colors[0]
+    
+        for i in 0...3 {
+            let width = self.box.bounds.size.width / 4.0
+            let segmentFrame = CGRect(
+                x: CGFloat(i) * width,
+                y: 0,
+                width: width,
+                height: self.box.bounds.size.height
+            )
+            let segment = UIView(frame: segmentFrame)
+            segment.backgroundColor = self.colors[0]
+            self.box.addSubview(segment)
+            
+            self.segments.append(segment)
+        }
         
         let width: CGFloat = images[0].size.width
         let height: CGFloat = images[0].size.height
@@ -92,19 +115,32 @@ class ClubAsmCompoSquaresView: UIView, ClubAsmActions {
     }
     
     func action1() {
+        let colorIndex = self.position > 0 ? self.position - 1 : self.colors.count - 1
+        
+        for view in self.segments {
+            view.backgroundColor = self.colors[colorIndex]
+            view.alpha = 1
+        }
+        
+        self.box.backgroundColor = self.colors[self.position]
+        
+        animateSegment(0)
     }
     
     func action2() {
+        animateSegment(1)
     }
     
     func action3() {
+        animateSegment(2)
     }
     
     func action4() {
+        animateSegment(3)
     }
     
     func action5() {
-        UIView.animate(withDuration: 1.5, delay: 0, options: [.curveEaseOut], animations: {
+        UIView.animate(withDuration: ClubAsmConstants.animationDuration - 0.1, delay: 0, options: [.curveEaseOut], animations: {
             self.box.frame.size.width = self.bounds.size.height - (self.border * 2.0)
             self.box.frame.size.height = self.bounds.size.width - (self.border * 2.0)
             self.box.frame.origin.x = self.bounds.midX - (self.box.bounds.size.width / 2.0)
@@ -176,5 +212,14 @@ class ClubAsmCompoSquaresView: UIView, ClubAsmActions {
         default:
             abort()
         }
+    }
+    
+    private func animateSegment(_ index: Int) {
+        let view = self.segments[index]
+        view.alpha = 1
+        
+        UIView.animate(withDuration: ClubAsmConstants.tickLength, delay: 0, options: [.curveEaseOut], animations: {
+            view.alpha = 0
+        }, completion: nil)
     }
 }
