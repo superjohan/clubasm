@@ -9,43 +9,45 @@
 import UIKit
 
 class ClubAsmDefeatView: UIView, ClubAsmActions {
-    private let imageView: UIImageView
-
-    private var views = [UIView]()
+    private var imageViews = [UIView]()
+    private let bg = UIView()
     
     override init(frame: CGRect) {
-        guard let image = UIImage(named: "clubasmdefeat") else { abort() }
-        
-        self.imageView = UIImageView(image: image)
-        
         super.init(frame: frame)
         
         self.backgroundColor = .black
         
-        self.imageView.frame = CGRect(
-            x: (self.bounds.size.width / 2.0) - (image.size.width / 2.0),
-            y: (self.bounds.size.height / 2.0) - (image.size.height / 2.0),
-            width: image.size.width,
-            height: image.size.height
-        )
+        self.bg.frame = self.bounds
+        addSubview(self.bg)
         
-        for i in 0..<4 {
-            let view = UIView(frame: self.imageView.frame)
-            view.backgroundColor = UIColor(red:0.455, green:0.736, blue:1.000, alpha:0.5)
-            view.layer.transform.m34 = -0.002
-            view.layer.transform = CATransform3DRotate(view.layer.transform, CGFloat.pi * (CGFloat(i) * 0.25), 0, 1, 0)
-            view.layer.zPosition = -image.size.width
-            view.isHidden = true
-            addSubview(view)
-
-            self.views.append(view)
+        for i in 0...4 {
+            let height = self.bounds.size.height / 5.0
+            let segmentFrame = CGRect(
+                x: 0,
+                y: CGFloat(i) * height,
+                width: self.bounds.size.width,
+                height: height
+            )
+            let segment = UIView(frame: segmentFrame)
+            segment.backgroundColor = UIColor(white: 0.2, alpha: 1)
+            segment.alpha = 0
+            self.bg.addSubview(segment)
         }
         
-        self.imageView.layer.zPosition = image.size.width
-        self.imageView.transform = CGAffineTransform.identity.scaledBy(x: 0.5, y: 0.5)
-        self.imageView.isHidden = true
+        let image = UIImage(named: "clubasmdefeat")!
         
-        addSubview(self.imageView)
+        for _ in 0...20 {
+            let imageView = UIImageView(image: image)
+            imageView.frame = CGRect(
+                x: (self.bounds.size.width / 2.0) - (image.size.width / 2.0),
+                y: (self.bounds.size.height / 2.0) - (image.size.height / 2.0),
+                width: image.size.width,
+                height: image.size.height
+            )
+            addSubview(imageView)
+            
+            self.imageViews.append(imageView)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -55,55 +57,55 @@ class ClubAsmDefeatView: UIView, ClubAsmActions {
     private var animating = false
     
     func action1() {
-        self.views[1].isHidden = true
-        self.views[2].isHidden = false
-    }
-    
-    func action2() {
-        self.views[2].isHidden = true
-        self.views[3].isHidden = false
-    }
-    
-    func action3() {
-        self.views[3].isHidden = true
-        self.views[0].isHidden = false
-    }
-    
-    func action4() {
-        self.views[0].isHidden = true
-        self.views[1].isHidden = false
-    }
-    
-    func action5() {
-        for view in self.views {
-            view.isHidden = false
-        }
+        animateSegment(0)
         
         if self.animating { return }
         
-        for (index, view) in self.views.enumerated() {
-            view.isHidden = false
+        self.animating = true
+        
+        for (index, view) in self.imageViews.enumerated() {
+            view.alpha = 0
+            view.layer.transform.m34 = -0.002
+            view.frame.origin.y = -view.bounds.size.height
+            view.layer.transform = CATransform3DRotate(view.layer.transform, -(CGFloat.pi), 1, 0, 0)
             
-            let sign: Double = index > 2 ? -1 : 1
-            let animation2 = CABasicAnimation(keyPath: "transform.rotation.y")
-            animation2.byValue = NSNumber(floatLiteral: Double.pi * 2 * sign)
-            animation2.duration = 10
-            animation2.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-            animation2.repeatCount = Float.infinity
-            view.layer.add(animation2, forKey: "yrotation")
+            let duration = ClubAsmConstants.barLength * 2
+            let delay = Double(index) * 0.3
+
+            UIView.animate(withDuration: duration, delay: delay, options: [.curveLinear], animations: {
+                view.frame.origin.y = 375
+                view.layer.transform = CATransform3DRotate(view.layer.transform, CGFloat.pi, 1, 0, 0)
+            }, completion: nil)
             
-            UIView.animate(withDuration: ClubAsmConstants.barLength * 2.0, delay: 0, options: [.curveEaseOut], animations: {
-                view.alpha = 0
+            UIView.animate(withDuration: duration, delay: delay, options: [.curveEaseInOut], animations: {
+                view.alpha = 1
             }, completion: nil)
         }
+    }
+    
+    func action2() {
+        animateSegment(1)
+    }
+    
+    func action3() {
+        animateSegment(2)
+    }
+    
+    func action4() {
+        animateSegment(3)
+    }
+    
+    func action5() {
+        animateSegment(4)
+    }
+    
+    private func animateSegment(_ index: Int) {
+        let view = self.bg.subviews[index]
         
-        self.imageView.isHidden = false
+        view.alpha = 1
         
-        UIView.animate(withDuration: 4, delay: 0, options: [.curveEaseOut], animations: {
-            self.imageView.transform = self.imageView.transform.scaledBy(x: 0.75, y: 0.75)
-            self.imageView.alpha = 0.5
+        UIView.animate(withDuration: ClubAsmConstants.animationDuration, delay: 0, options: [.curveEaseOut], animations: {
+            view.alpha = 0
         }, completion: nil)
-
-        self.animating = true
     }
 }
