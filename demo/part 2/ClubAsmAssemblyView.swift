@@ -143,7 +143,7 @@ class ClubAsmAssemblyView: UIView, ClubAsmActions {
         
         if self.position == 9 {
             let duration = ClubAsmConstants.barLength
-            self.logoWrapper.runAction(SCNAction.fadeOut(duration: duration))
+            self.logoWrapper.runAction(SCNAction.fadeOut(duration: duration / 2.0))
 
             SCNTransaction.begin()
             SCNTransaction.animationDuration = duration
