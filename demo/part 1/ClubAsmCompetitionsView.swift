@@ -21,11 +21,11 @@ class ClubAsmCompetitionsView: UIView, ClubAsmActions {
         
         self.backgroundColor = backgroundColor
         
-        let red = UIColor(red:0.900, green:0.255, blue:0.170, alpha:1.000)
+        let color = UIColor(red:0.173, green:0.429, blue:0.897, alpha:1.000)
         let dark = UIColor(red:0.043, green:0.110, blue:0.170, alpha:1.000)
 
         self.bg.frame = CGRect(x: self.bounds.size.width / 2.0, y: 0, width: 0, height: self.bounds.size.height)
-        self.bg.backgroundColor = red
+        self.bg.backgroundColor = color
         self.bg.layer.zPosition = -100
         addSubview(self.bg)
         
@@ -47,12 +47,12 @@ class ClubAsmCompetitionsView: UIView, ClubAsmActions {
             case 0:
                 imageView.tintColor = dark
             case 1:
-                imageView.tintColor = red
+                imageView.tintColor = color
                 imageView.backgroundColor = .white
             case 2:
                 imageView.tintColor = .white
             case 3:
-                imageView.tintColor = red
+                imageView.tintColor = color
                 imageView.backgroundColor = dark
             default:
                 abort()
