@@ -26,3 +26,5 @@ This was an unusually tough demo to piece together, due to the large amount of c
 Thanks to everyone that helped.
 
 CLUB ASM uses [the Inter typeface](https://rsms.me/inter/) by Rasmus Andersson extensively.
+
+Shout outs to Büro Destruct, Oh No Type Co, The Pyte Foundry, and the many others who either influenced the demo or had their stuff stolen by me. I'm sorry.
