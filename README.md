@@ -18,3 +18,5 @@ This was an unusually tough demo to piece together, due to the large amount of c
 - Text and other information provided by Myy and Rimina.
 
 Thanks to everyone that helped.
+
+CLUB ASM uses [the Inter typeface](https://rsms.me/inter/) by Rasmus Andersson extensively.
