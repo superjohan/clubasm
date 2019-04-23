@@ -1,8 +1,14 @@
-# "Club Asm" by Dekadence
+# "CLUB ASM" by Dekadence
 
 ## The Assembly Summer 2019 Invitation
 
 ### A demo for iPhone
+
+[Watch CLUB ASM on YouTube](https://www.youtube.com/watch?v=EYa_3YXkBBM)
+
+[Watch CLUB ASM on your iPhone](https://itunes.apple.com/fi/app/the-jumalauta-collection/id1344164506?mt=8)
+
+4th place in the Wild demo competition at Revision 2019.
 
 Requires iOS 12, probably. The demo should work on most iOS devices, although it's only been tested on an iPhone X.
 
